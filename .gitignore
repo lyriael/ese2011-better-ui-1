@@ -1,7 +1,6 @@
 # Copied together from github.com/github/gitignore
 # Java Stuff:
 *.class
-*.jar
 *.war
 *.ear
 
