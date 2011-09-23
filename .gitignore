@@ -60,3 +60,6 @@ Desktop.ini
 
 # KDE
 .directory
+
+# Merge stuff:
+*.orig
