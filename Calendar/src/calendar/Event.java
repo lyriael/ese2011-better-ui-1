@@ -3,7 +3,7 @@ package calendar;
 import hirondelle.date4j.DateTime;
 import hirondelle.date4j.DateTime.DayOverflow;
 
-public class Event implements Comparable {
+public class Event implements Comparable<Event> {
 	
 	private String eventName;
 	private DateTime startTime;
@@ -59,10 +59,7 @@ public class Event implements Comparable {
 	}
 
 	@Override
-	public int compareTo(Object arg0) {
-		if (arg0.getClass() != Event.class)
-			throw new IllegalArgumentException();
-		Event e = (Event) arg0;
+	public int compareTo(Event e) {
 		return this.getStartTime().compareTo(e.getStartTime());
 	}
 }
