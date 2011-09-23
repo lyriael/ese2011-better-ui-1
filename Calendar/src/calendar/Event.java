@@ -15,4 +15,8 @@ public class Event {
 		this.endTime = endTime;
 		this.isPrivate = isPrivate;
 	}
+	
+	public boolean isPrivate(){
+		return isPrivate;
+	}
 }
