@@ -34,5 +34,11 @@ public class testEvent {
 		assertTrue(eventPast.compareTo(eventToday) < 0);
 		assertTrue(eventToday.compareTo(eventPast) > 0);
 	}
+	
+	@Test
+	public void shouldBePrivate() {
+		assertTrue(eventPast.isPrivate());
+		assertTrue(eventToday.isPrivate());
+	}
 
 }
