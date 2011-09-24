@@ -26,23 +26,25 @@ public class Event implements Comparable<Event> {
 		fillInData(eventName, startTime, endTime, isPrivate);
 	}
 	
-	public Event(String eventName, String date, String startTime) {
-		this(eventName, date, startTime, false);
+	public Event(String eventName, String sTime, String eTime) {
+		DateTime startTime = new DateTime(sTime);
+		DateTime endTime = new DateTime(eTime);
+		fillInData(eventName, startTime, endTime, true);
 	}
 	
 	/**
 	 * Constructor without ending time. Makes an event with the lenght of one
-	 * hour by default. 
+	 * hour by default. The visibility is private by default.
 	 * @param date
 	 * @param sTime
 	 * @param isPrivate
 	 */
-	public Event(String eventName, String date, String sTime, boolean isPrivate) {
+	public Event(String eventName, String sTime) {
 		//TODO: convert Strings so they're valid
 		//for now: organized panic.
-		DateTime startTime = new DateTime(date + " " + sTime);
+		DateTime startTime = new DateTime(sTime);
 		DateTime endTime = startTime.plus(0, 0, 0, 1, 0, 0, DayOverflow.Spillover);
-		fillInData(eventName, startTime, endTime, isPrivate);
+		fillInData(eventName, startTime, endTime, true);
 	}
 
 	public boolean isPrivate(){
@@ -58,6 +60,10 @@ public class Event implements Comparable<Event> {
 	
 	public DateTime getStartTime() {
 		return startTime;
+	}
+	
+	public DateTime getEndTime() {
+		return endTime;
 	}
 
 	@Override
