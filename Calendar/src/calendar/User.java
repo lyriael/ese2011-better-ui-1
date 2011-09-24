@@ -26,11 +26,12 @@ public class User {
 	}
 	
 	private Event getNextEvent() {
-		//TODO fix this:
-		for (Event e: eventList) {
-			DateTime startTime = e.getStartTime();
-			if (startTime.isInTheFuture(TimeZone.getDefault()))
-				return e;
+		for (Calendar c: calendars) {
+			for (Event e: c) {
+				DateTime startTime = e.getStartTime();
+				if (startTime.isInTheFuture(TimeZone.getDefault()))
+					return e;
+			}
 		}
 		throw new NoSuchElementException();
 	}

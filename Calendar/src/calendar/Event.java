@@ -5,7 +5,7 @@ import java.util.Iterator;
 import hirondelle.date4j.DateTime;
 import hirondelle.date4j.DateTime.DayOverflow;
 
-public class Event implements Comparable<Event>, Iterable {
+public class Event implements Comparable<Event> {
 	
 	private String eventName;
 	private DateTime startTime;
@@ -63,11 +63,5 @@ public class Event implements Comparable<Event>, Iterable {
 	@Override
 	public int compareTo(Event e) {
 		return this.getStartTime().compareTo(e.getStartTime());
-	}
-
-	@Override
-	public Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
