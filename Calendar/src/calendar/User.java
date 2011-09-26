@@ -16,6 +16,11 @@ public class User {
 		this.calendars = new LinkedList<Calendar>();
 	}
 	
+	public void createCalendar(String name) {
+		Calendar newCal = new Calendar(name, this);
+		calendars.add(newCal);
+	}
+	
 	public String getName(){
 		return name;
 	}
