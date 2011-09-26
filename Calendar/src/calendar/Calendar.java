@@ -60,8 +60,8 @@ public class Calendar implements Iterable<Event> {
 		return ListOfSpecificDate;
 	}
 	
-	public Event addEvent(String eventName, String date, String time) {
-		Event newEvent = new Event(eventName, date, time);
+	public Event addEvent(String eventName, String sTime, String eTime) {
+		Event newEvent = new Event(eventName, sTime, eTime);
 		eventList.add(newEvent);
 		return newEvent;
 	}
@@ -72,6 +72,12 @@ public class Calendar implements Iterable<Event> {
 				return e;
 		}
 		throw new NoSuchElementException("No future event!");
+	}
+
+	public Event addEvent(String eventName, String date) {
+		Event newEvent = new Event(eventName, date);
+		eventList.add(newEvent);
+		return newEvent;
 	}
 
 }

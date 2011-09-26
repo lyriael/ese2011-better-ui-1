@@ -1,44 +1,35 @@
 package calendar;
 
-import java.util.Iterator;
-import java.util.TimeZone;
-
 import hirondelle.date4j.DateTime;
 import hirondelle.date4j.DateTime.DayOverflow;
 
+import java.util.TimeZone;
+
+/**
+ * For now, the Conversion DateTime <-> String is done here.
+ * This is still subject to change!
+ * @author panmari
+ */
 public class Event implements Comparable<Event> {
 	
 	private String eventName;
 	private DateTime startTime;
 	private DateTime endTime;
 	private boolean isPrivate;
-
 	
-	/**
-	 * All conversion String <-> DateTime is done here for now
-	 * Subject to change! (Maybe implement special class for that)
-	 * 
-	 * @param EventName
-	 * @param startTime
-	 * @param endTime
-	 * @param isPrivate
-	 */
-	public Event(String eventName, DateTime startTime, DateTime endTime, boolean isPrivate) {
+	public Event(String eventName, String sTime, String eTime, boolean isPrivate) {
+		DateTime startTime = new DateTime(sTime);
+		DateTime endTime = new DateTime(eTime);
 		fillInData(eventName, startTime, endTime, isPrivate);
 	}
 	
 	public Event(String eventName, String sTime, String eTime) {
-		DateTime startTime = new DateTime(sTime);
-		DateTime endTime = new DateTime(eTime);
-		fillInData(eventName, startTime, endTime, true);
+		this(eventName, sTime, eTime, true);
 	}
 	
 	/**
 	 * Constructor without ending time. Makes an event with the lenght of one
 	 * hour by default. The visibility is private by default.
-	 * @param date
-	 * @param sTime
-	 * @param isPrivate
 	 */
 	public Event(String eventName, String sTime) {
 		//TODO: convert Strings so they're valid
