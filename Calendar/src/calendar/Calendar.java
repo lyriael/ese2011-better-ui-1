@@ -3,6 +3,7 @@ package calendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
 public class Calendar implements Iterable<Event> {
@@ -53,11 +54,24 @@ public class Calendar implements Iterable<Event> {
 		for (Event e: this) {
 			e.hasSameStartingDateAs(dummyEvent);
 			ListOfSpecificDate.add(dummyEvent);
-			if (e.startsInPast()) //coz its a priority List
+			if (e.compareTo(dummyEvent) > 0) //coz its a priority List
 				break;
 		}
 		return ListOfSpecificDate;
-		
+	}
+	
+	public Event addEvent(String eventName, String date, String time) {
+		Event newEvent = new Event(eventName, date, time);
+		eventList.add(newEvent);
+		return newEvent;
+	}
+	
+	public Event getNextEvent() {
+		for (Event e: this) {
+			if (!e.startsInPast())
+				return e;
+		}
+		throw new NoSuchElementException("No future event!");
 	}
 
 }
