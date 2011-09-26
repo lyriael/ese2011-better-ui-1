@@ -17,9 +17,10 @@ public class User implements Iterable<Calendar> {
 		this.calendars = new LinkedList<Calendar>();
 	}
 	
-	public void createCalendar(String name) {
+	public Calendar createCalendar(String name) {
 		Calendar newCal = new Calendar(name, this);
 		calendars.add(newCal);
+		return newCal;
 	}
 	
 	public String getName(){
