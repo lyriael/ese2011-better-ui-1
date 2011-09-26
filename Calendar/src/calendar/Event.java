@@ -1,6 +1,7 @@
 package calendar;
 
 import java.util.Iterator;
+import java.util.TimeZone;
 
 import hirondelle.date4j.DateTime;
 import hirondelle.date4j.DateTime.DayOverflow;
@@ -69,5 +70,14 @@ public class Event implements Comparable<Event> {
 	@Override
 	public int compareTo(Event e) {
 		return this.getStartTime().compareTo(e.getStartTime());
+	}
+	
+	public boolean hasSameStartingDateAs(Event e) {
+		return e.getStartTime().isSameDayAs(this.getStartTime());
+	}
+
+	public boolean startsInPast() {
+		this.getStartTime().isInThePast(TimeZone.getDefault());
+		return false;
 	}
 }

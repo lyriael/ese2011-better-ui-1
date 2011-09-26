@@ -48,13 +48,15 @@ public class Calendar implements Iterable<Event> {
 	}
 	
 	public List<Event> getListOfDate(String Date) {
-		List<Event> ListOfDate = new LinkedList<Event>();
-		//TODO: Stuff to do
-		blub = new DateTime(Date);
+		List<Event> ListOfSpecificDate = new LinkedList<Event>();
+		Event dummyEvent = new Event("dummy", Date);
 		for (Event e: this) {
-			e.getStartTime().isSameDayAs(arg0)
+			e.hasSameStartingDateAs(dummyEvent);
+			ListOfSpecificDate.add(dummyEvent);
+			if (e.startsInPast()) //coz its a priority List
+				break;
 		}
-		return ;
+		return ListOfSpecificDate;
 		
 	}
 
