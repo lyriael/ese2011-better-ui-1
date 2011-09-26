@@ -1,26 +1,45 @@
 package calendar;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import hirondelle.date4j.DateTime;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.TimeZone;
 
 public class User {
 	private String name;
-	Scanner scn =new Scanner(System.in);
-	ArrayList<Calendar> calendarList= new ArrayList<Calendar>();
+	private List<Calendar> calendars;
 	
 	public User (String name){
 		this.name = name;
+		this.calendars = new LinkedList<Calendar>();
+	}
+	
+	public void createCalendar(String name) {
+		Calendar newCal = new Calendar(name, this);
+		calendars.add(newCal);
 	}
 	
 	public String getName(){
 		return name;
 	}
 	
-	public void addCalendar(){
-		System.out.println("Enter calendar name:");
-		String tempName = scn.next();
-		Calendar calendar = new Calendar(tempName);
-		calendarList.add(calendar);
-		
+	public Event addEvent(String eventName, String date, String time) {
+		Event newEvent = new Event(eventName, date, time);
+		return newEvent;
 	}
+	
+	private Event getNextEvent() {
+		for (Calendar c: calendars) {
+			for (Event e: c) {
+				DateTime startTime = e.getStartTime();
+				if (startTime.isInTheFuture(TimeZone.getDefault()))
+					return e;
+			}
+		}
+		throw new NoSuchElementException();
+	}
+	
+	
 }

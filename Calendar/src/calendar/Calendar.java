@@ -1,44 +1,61 @@
 package calendar;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
 
-public class Calendar {
-	
+public class Calendar implements Iterable<Event> {
 	private String calendarName;
-	ArrayList<Event> eventList= new ArrayList<Event>();
-	Scanner scn = new Scanner(System.in);
+	private User owner;
+	private PriorityQueue<Event> eventList;
 	
-	public Calendar(String calendarName){
-		this.calendarName=calendarName;
-	}
-	
-	public void addEvent(){
-		
-		
-		System.out.println("Enter event name:");
-		String name = scn.next();
-		
-		boolean isPrivate = isEventPrivate();
-			
-			
-		Date startTime =new Date();
-		Date endTime = new Date();
-		Event event = new Event(name, startTime, endTime, isPrivate);
-		eventList.add(event);
-		
+	public Calendar(String calendarName, User owner){
+		this.setCalendarName(calendarName);
+		this.owner = owner;
+		eventList = new PriorityQueue<Event>();
 	}
 
-	private boolean isEventPrivate() {
-		boolean isPrivate=true;
-		System.out.println("Is it private? (Y/N)");
-		String tmp = scn.next().toLowerCase();
-		if (tmp.contains("y"))
-			isPrivate = true;
-		else
-			isPrivate = false;
-		return isPrivate;
+	@Override
+	public Iterator<Event> iterator() {
+		return eventList.iterator();
+	}
+	
+	/**
+	 * TODO: Starting Date as Parameter.
+	 * @param user
+	 * @return
+	 */
+	public Iterator<Event> getVisibleEvents(User user) {
+		List<Event> publicEvents = new LinkedList<Event>();
+		if (user == owner)
+			return iterator();
+		else {
+			for(Event e: this) {
+				if (!e.isPrivate())
+					publicEvents.add(e);
+			}
+			return publicEvents.iterator();
+		}
+	}
+
+	public String getCalendarName() {
+		return calendarName;
+	}
+
+	private void setCalendarName(String calendarName) {
+		this.calendarName = calendarName;
+	}
+	
+	public List<Event> getListOfDate(String Date) {
+		List<Event> ListOfDate = new LinkedList<Event>();
+		//TODO: Stuff to do
+		blub = new DateTime(Date);
+		for (Event e: this) {
+			e.getStartTime().isSameDayAs(arg0)
+		}
+		return ;
+		
 	}
 
 }

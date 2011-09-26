@@ -1,20 +1,26 @@
 package calendar;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
+import java.util.LinkedList;
+import java.util.List;
 
 public class CalendarMain {
+	private List<User> userList;
 	
-	ArrayList<User> userList = new ArrayList<User>();
-	Scanner scn = new Scanner(System.in);	
+	/**
+	 * Initializes a new userList
+	 */
+	public CalendarMain() {
+		userList = new LinkedList<User>();
+	}	
 	
-	public void addUser(){
-		System.out.println("Enter username:");
-		String tempName = scn.next();
-		User user = new User(tempName);
-		userList.add(user);
-		System.out.println(tempName);
+	/**
+	 * @param initialUsers  a List of already existing users
+	 */
+	public CalendarMain(LinkedList<User> initialUsers) {
+		this.userList = initialUsers;
 	}
-
+	
+	public static void main(String[] args) {
+		new CalendarMain();
+	}
 }
