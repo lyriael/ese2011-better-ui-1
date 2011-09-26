@@ -2,12 +2,13 @@ package calendar;
 
 import hirondelle.date4j.DateTime;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.TimeZone;
 
-public class User {
+public class User implements Iterable<Calendar> {
 	private String name;
 	private List<Calendar> calendars;
 	
@@ -25,20 +26,21 @@ public class User {
 		return name;
 	}
 	
-	public Event addEvent(String eventName, String date, String time) {
-		Event newEvent = new Event(eventName, date, time);
-		return newEvent;
-	}
-	
 	private Event getNextEvent() {
-		for (Calendar c: calendars) {
-			for (Event e: c) {
-				DateTime startTime = e.getStartTime();
-				if (startTime.isInTheFuture(TimeZone.getDefault()))
-					return e;
-			}
+		//TODO: 
+		/*
+			Event nextEvent = 
+		for (Calendar c: this) {
+			Event nextEvent = c.getNextEvent();
 		}
 		throw new NoSuchElementException();
+		*/
+		return null;
+	}
+
+	@Override
+	public Iterator<Calendar> iterator() {
+		return calendars.iterator();
 	}
 	
 	

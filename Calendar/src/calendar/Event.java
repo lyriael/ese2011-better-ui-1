@@ -77,7 +77,10 @@ public class Event implements Comparable<Event> {
 	}
 
 	public boolean startsInPast() {
-		this.getStartTime().isInThePast(TimeZone.getDefault());
-		return false;
+		return this.getStartTime().isInThePast(TimeZone.getDefault());
+	}
+	
+	public String toString() {
+		return eventName + " " + startTime.format("YYYY-MM-DD");
 	}
 }
