@@ -29,7 +29,7 @@ public class Calendar implements Iterable<Event> {
 	 */
 	
 	
-	public Iterator<Event> getAllVisibleEvents(User user, String startDate) {
+	public Iterator<Event> getAllVisibleEventsAfter(User user, String startDate) {
 		List<Event> publicEvents = new LinkedList<Event>();
 		List<Event> privateEvents= new LinkedList<Event>();
 		Event dummyEvent = new Event("dummy", startDate);

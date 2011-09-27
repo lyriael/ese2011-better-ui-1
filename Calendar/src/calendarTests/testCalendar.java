@@ -21,18 +21,20 @@ public class testCalendar {
 	private Calendar testCal;
 	private Event bdayParty, go2bed, go2Uni, today, somePrivateStuff;
 	private User testCalOwner, testUser;
+	private Event XmasLastYear;
 
 	@Before
 	public void setUp() throws Exception {
 		testCalOwner = new User("Vofi");
 		testUser = new User("Test");
 		testCal = new Calendar("Vofi's Cal", testCalOwner);
+		DateTime now = DateTime.now(TimeZone.getDefault());
+		today = testCal.addEvent("today", now.toString());
+		XmasLastYear =  testCal.addEvent("Xmas", "2010-12-25 18:00:00", "2010-12-25 20:00:00", false);
 		bdayParty = testCal.addEvent("Bday Party", "2011-02-19 18:00:00", "2011-02-19 20:00:00", false);
 		go2bed = testCal.addEvent("Zzz", "2011-02-19 22:00:00", "2011-02-20 08:00:00", false);
 		somePrivateStuff = testCal.addEvent("U don't wanna know", "2011-02-19 22:10:00", "2011-02-19 23:00:00", true);
 		go2Uni = testCal.addEvent("Uni", "2011-02-20 09:00:00", "2011-02-20 15:00:00", false);
-		DateTime now = DateTime.now(TimeZone.getDefault());
-		today = testCal.addEvent("today", now.toString());
 	}
 	
 	@Test
@@ -43,25 +45,37 @@ public class testCalendar {
 
 	@Test
 	public void testGetListOfDate() {
-		List<Event> eventList = testCal.getListOfDate("2011-02-19");
+		List<Event> eventList = testCal.getListOfDate("2011-02-19", testCalOwner);
 		assertTrue(eventList.contains(bdayParty));
 		assertTrue(eventList.contains(go2bed));
+		assertTrue(eventList.contains(somePrivateStuff));
+		assertFalse(eventList.contains(go2Uni));
+		assertFalse(eventList.contains(today));
+	}
+	
+	@Test
+	public void testGetAllVisibleEvents() {
+		List<Event> eventList = testCal.getListOfDate("2011-02-19", testUser);
+		assertTrue(eventList.contains(bdayParty));
+		assertTrue(eventList.contains(go2bed));
+		assertFalse(eventList.contains(somePrivateStuff));
 		assertFalse(eventList.contains(go2Uni));
 		assertFalse(eventList.contains(today));
 	}
 	
 	@Test
 	public void ownerShouldSeeAllEvents() {
-		Iterator<Event> visibleEventsIter = testCal.getVisibleEvents(testCalOwner);
+		Iterator<Event> visibleEventsIter = testCal.getAllVisibleEventsAfter(testCalOwner, "2011-02-19");
 		assertEquals(bdayParty, visibleEventsIter.next());
 		assertEquals(go2bed, visibleEventsIter.next());
 		assertEquals(somePrivateStuff, visibleEventsIter.next());
 		assertEquals(go2Uni, visibleEventsIter.next());
+		assertEquals(today, visibleEventsIter.next());
 	}
 	
 	@Test
 	public void testUserShouldntSeeAllEvents() {
-		Iterator<Event> visibleEventsIter = testCal.getVisibleEvents(testUser);
+		Iterator<Event> visibleEventsIter = testCal.getAllVisibleEventsAfter(testUser, "2011-02-19");
 		assertEquals(bdayParty, visibleEventsIter.next());
 		assertEquals(go2bed, visibleEventsIter.next());
 		assertEquals(go2Uni, visibleEventsIter.next());
