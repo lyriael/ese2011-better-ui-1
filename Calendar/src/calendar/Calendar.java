@@ -89,12 +89,6 @@ public class Calendar implements Iterable<Event> {
 		return ListOfSpecificDate;
 	}
 	
-	public Event addEvent(String eventName, String date, String time) {
-		Event newEvent = new Event(eventName, date, time);
-		eventList.add(newEvent);
-		return newEvent;
-	}
-	
 	public Event getNextEvent() {
 		for (Event e: this) {
 			if (!e.startsInPast())
@@ -107,5 +101,21 @@ public class Calendar implements Iterable<Event> {
 		return owner;
 		}
 	
+
+	public Event addEvent(String eventName, String sTime, String eTime) {
+		return this.addEvent(eventName, sTime, eTime, true);
+	}
+
+	public Event addEvent(String eventName, String date) {
+		Event newEvent = new Event(eventName, date);
+		eventList.add(newEvent);
+		return newEvent;
+	}
+	
+	public Event addEvent(String eventName, String sTime, String eTime, boolean isPrivate) {
+		Event newEvent = new Event(eventName, sTime, eTime, isPrivate);
+		eventList.add(newEvent);
+		return newEvent;
+	}
 
 }
