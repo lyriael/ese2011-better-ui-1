@@ -17,9 +17,17 @@ public class Calendar implements Iterable<Event> {
 		eventList = new PriorityQueue<Event>();
 	}
 
+	/**
+	 * This iterator is in order from the earliest Event to the latest.
+	 */
 	@Override
 	public Iterator<Event> iterator() {
-		return eventList.iterator();
+		List<Event> orderedList = new LinkedList<Event>();
+		PriorityQueue<Event> queueCopy = new PriorityQueue<Event>(eventList);
+		while (!queueCopy.isEmpty()) {
+			orderedList.add(queueCopy.poll());
+		}
+		return orderedList.iterator();
 	}
 	
 	/**

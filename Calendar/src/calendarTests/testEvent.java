@@ -16,11 +16,13 @@ public class testEvent {
 	private Event eventPast;
 	private Event eventToday;
 	private Event eventPastPublic;
+	private Event eventPast2;
 
 	@Before
 	public void setUp() throws Exception {
 		eventPast = new Event("TestEvent", "2011-02-19 12:00:00");
-		eventPastPublic = new Event("TestEvent2", "2011-02-19 13:00:00", "2011-02-19 16:00:00",  false);
+		eventPast2 = new Event("TestEvent", "2011-02-18 12:00:00");
+		eventPastPublic = new Event("TestEvent2", "2011-02-19 14:00:00", "2011-02-19 16:00:00",  false);
 		DateTime now = DateTime.now(TimeZone.getDefault());
 		eventToday = new Event("Today", now.toString());
 	}
@@ -50,6 +52,7 @@ public class testEvent {
 	
 	@Test
 	public void eventShouldBeComparable() {
+		assertTrue(eventPast2.compareTo(eventPast) < 0);
 		assertTrue(eventPast.compareTo(eventToday) < 0);
 		assertTrue(eventToday.compareTo(eventPast) > 0);
 	}

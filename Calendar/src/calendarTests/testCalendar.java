@@ -25,9 +25,9 @@ public class testCalendar {
 
 	@Before
 	public void setUp() throws Exception {
-		testCalOwner = new User("Vofi");
+		testCalOwner = new User("TestOwner");
 		testUser = new User("Test");
-		testCal = new Calendar("Vofi's Cal", testCalOwner);
+		testCal = new Calendar("TestOwner's Cal", testCalOwner);
 		DateTime now = DateTime.now(TimeZone.getDefault());
 		today = testCal.addEvent("today", now.toString());
 		XmasLastYear =  testCal.addEvent("Xmas", "2010-12-25 18:00:00", "2010-12-25 20:00:00", false);
@@ -39,7 +39,7 @@ public class testCalendar {
 	
 	@Test
 	public void shouldHaveName() {
-		assertEquals("Vofi's Cal", testCal.getCalendarName());
+		assertEquals("TestOwner's Cal", testCal.getCalendarName());
 	}
 	
 
