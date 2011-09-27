@@ -30,23 +30,20 @@ public class Calendar implements Iterable<Event> {
 	
 	
 	public Iterator<Event> getAllVisibleEventsAfter(User user, String startDate) {
-		List<Event> publicEvents = new LinkedList<Event>();
-		List<Event> privateEvents= new LinkedList<Event>();
+		List<Event> returnedEvents = new LinkedList<Event>();
 		Event dummyEvent = new Event("dummy", startDate);
 		if (user == owner){
 			for (Event e: this){
 				if (e.compareTo(dummyEvent)>0)
-					privateEvents.add(e);
+					returnedEvents.add(e);
 			}
-			return privateEvents.iterator();
-		}
-		else {
+		} else {
 			for(Event e: this) {
 				if (!e.isPrivate() && e.compareTo(dummyEvent)>0)
-					publicEvents.add(e);
+					returnedEvents.add(e);
 			}
-			return publicEvents.iterator();
 		}
+		return returnedEvents.iterator();
 	}
 	public String getCalendarName() {
 		return calendarName;
@@ -57,36 +54,17 @@ public class Calendar implements Iterable<Event> {
 	}
 	
 	public List<Event> getListOfDate(String Date, User user) {
-		
 		List<Event> ListOfSpecificDate = new LinkedList<Event>();
 		Event dummyEvent = new Event("dummy", Date);
-		User tempUser= new User(null);
-		tempUser = user;
-		if (user==owner){
-			return getPrivateListofDate(ListOfSpecificDate, dummyEvent);
-		}
-		else{
-			return getPublicListofDate(ListOfSpecificDate, dummyEvent);
-		}
-				
-	}
-
-	private List<Event> getPublicListofDate(List<Event> ListOfSpecificDate,
-			Event dummyEvent) {
+		boolean isOwner = false;
+		if (user == owner) 
+			isOwner = true;
 		for (Event e: this) {
-			if (e.hasSameStartingDateAs(dummyEvent) && e.isPrivate()==false)
+			if (e.hasSameStartingDateAs(dummyEvent) && 
+					((e.isPrivate() && isOwner) || !e.isPrivate()))
 				ListOfSpecificDate.add(e);
 		}
-		return ListOfSpecificDate;
-	}
-
-	private List<Event> getPrivateListofDate(List<Event> ListOfSpecificDate,
-			Event dummyEvent) {
-		for (Event e: this) {
-			if (e.hasSameStartingDateAs(dummyEvent))
-				ListOfSpecificDate.add(e);
-			}
-		return ListOfSpecificDate;
+		return ListOfSpecificDate;	
 	}
 	
 	public Event getNextEvent() {
