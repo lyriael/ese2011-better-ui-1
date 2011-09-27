@@ -44,8 +44,18 @@ public class testCalendar {
 	
 
 	@Test
+	public void testStandardIterator() {
+		Iterator<Event> allEvents = testCal.iterator();
+		assertEquals(XmasLastYear, allEvents.next());
+		assertEquals(bdayParty, allEvents.next());
+		assertEquals(go2bed, allEvents.next());
+		assertEquals(somePrivateStuff, allEvents.next());
+		assertEquals(go2Uni, allEvents.next());
+		assertEquals(today, allEvents.next());
+	}
+	@Test
 	public void testGetListOfDate() {
-		List<Event> eventList = testCal.getListOfDate("2011-02-19", testCalOwner);
+		List<Event> eventList = testCal.getListOfSpecificDate("2011-02-19", testCalOwner);
 		assertTrue(eventList.contains(bdayParty));
 		assertTrue(eventList.contains(go2bed));
 		assertTrue(eventList.contains(somePrivateStuff));
@@ -55,7 +65,7 @@ public class testCalendar {
 	
 	@Test
 	public void testGetAllVisibleEvents() {
-		List<Event> eventList = testCal.getListOfDate("2011-02-19", testUser);
+		List<Event> eventList = testCal.getListOfSpecificDate("2011-02-19", testUser);
 		assertTrue(eventList.contains(bdayParty));
 		assertTrue(eventList.contains(go2bed));
 		assertFalse(eventList.contains(somePrivateStuff));

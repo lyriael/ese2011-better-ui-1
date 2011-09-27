@@ -53,15 +53,12 @@ public class Calendar implements Iterable<Event> {
 		this.calendarName = calendarName;
 	}
 	
-	public List<Event> getListOfDate(String Date, User user) {
+	public List<Event> getListOfSpecificDate(String Date, User user) {
 		List<Event> ListOfSpecificDate = new LinkedList<Event>();
 		Event dummyEvent = new Event("dummy", Date);
-		boolean isOwner = false;
-		if (user == owner) 
-			isOwner = true;
 		for (Event e: this) {
 			if (e.hasSameStartingDateAs(dummyEvent) && 
-					((e.isPrivate() && isOwner) || !e.isPrivate()))
+					isEventVisibleFor(e, user))
 				ListOfSpecificDate.add(e);
 		}
 		return ListOfSpecificDate;	
@@ -79,6 +76,9 @@ public class Calendar implements Iterable<Event> {
 		return owner;
 		}
 	
+	private boolean isEventVisibleFor(Event e, User user) {
+		return (e.isPrivate() && owner == user) || !e.isPrivate();
+	}
 
 	public Event addEvent(String eventName, String sTime, String eTime) {
 		return this.addEvent(eventName, sTime, eTime, true);

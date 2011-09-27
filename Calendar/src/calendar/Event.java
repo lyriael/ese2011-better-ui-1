@@ -28,7 +28,7 @@ public class Event implements Comparable<Event> {
 	}
 	
 	/**
-	 * Constructor without ending time. Makes an event with the lenght of one
+	 * Constructor without ending time. Makes an event with the length of one
 	 * hour by default. The visibility is private by default.
 	 */
 	public Event(String eventName, String sTime) {
