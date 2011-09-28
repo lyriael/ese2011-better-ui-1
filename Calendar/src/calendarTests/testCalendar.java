@@ -73,6 +73,11 @@ public class testCalendar {
 		assertFalse(eventList.contains(go2Uni));
 		assertFalse(eventList.contains(today));
 	}
+	@Test
+	public void testDoesntShowPastEvents(){
+		List<Event> eventList =testCal.getListOfSpecificDate("2011-02-19", testUser);
+		assertFalse(eventList.contains(XmasLastYear));
+	}
 	
 	@Test
 	public void ownerShouldSeeAllEvents() {
@@ -91,6 +96,7 @@ public class testCalendar {
 		assertEquals(go2bed, visibleEventsIter.next());
 		assertEquals(go2Uni, visibleEventsIter.next());
 	}
+	
 
 	@Test (expected=NoSuchElementException.class)
 	public void shouldHaveNoEventInFuture() {
