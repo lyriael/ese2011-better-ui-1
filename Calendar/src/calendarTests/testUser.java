@@ -42,5 +42,10 @@ public class testUser {
 		assertEquals(cal2, testIter.next());
 		assertFalse(testIter.hasNext());
 	}
+	
+	@Test(expected=RuntimeException.class)
+	public void nextEventShouldNotBeImplemented() {
+		testUser.getNextEvent();
+	}
 
 }

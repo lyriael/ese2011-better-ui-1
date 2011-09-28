@@ -16,13 +16,27 @@ public class Event implements Comparable<Event> {
 	private DateTime startTime;
 	private DateTime endTime;
 	private boolean isPrivate;
+	private TimeZone currentTZ;
 	
+	/**
+	 * Full constructor
+	 * @param eventName
+	 * @param sTime
+	 * @param eTime
+	 * @param isPrivate
+	 */
 	public Event(String eventName, String sTime, String eTime, boolean isPrivate) {
 		DateTime startTime = new DateTime(sTime);
 		DateTime endTime = new DateTime(eTime);
 		fillInData(eventName, startTime, endTime, isPrivate);
 	}
 	
+	/**
+	 * Event is private by default
+	 * @param eventName
+	 * @param sTime
+	 * @param eTime
+	 */
 	public Event(String eventName, String sTime, String eTime) {
 		this(eventName, sTime, eTime, true);
 	}
@@ -48,6 +62,7 @@ public class Event implements Comparable<Event> {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.isPrivate = isPrivate;
+		this.currentTZ = TimeZone.getDefault();
 	}
 	
 	public DateTime getStartTime() {
@@ -58,6 +73,9 @@ public class Event implements Comparable<Event> {
 		return endTime;
 	}
 
+	/**
+	 * => In ordered lists, the earliest Events come first.
+	 */
 	@Override
 	public int compareTo(Event e) {
 		return this.getStartTime().compareTo(e.getStartTime());
@@ -68,7 +86,7 @@ public class Event implements Comparable<Event> {
 	}
 
 	public boolean startsInPast() {
-		return this.getStartTime().isInThePast(TimeZone.getDefault());
+		return this.getStartTime().isInThePast(currentTZ);
 	}
 	
 	public String toString() {

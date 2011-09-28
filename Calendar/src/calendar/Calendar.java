@@ -1,5 +1,6 @@
 package calendar;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,12 +10,12 @@ import java.util.PriorityQueue;
 public class Calendar implements Iterable<Event> {
 	private String calendarName;
 	private User owner;
-	private PriorityQueue<Event> eventList;
+	private List<Event> eventList;
 	
 	public Calendar(String calendarName, User owner){
 		this.setCalendarName(calendarName);
 		this.owner = owner;
-		eventList = new PriorityQueue<Event>();
+		eventList = new LinkedList<Event>();
 	}
 
 	/**
@@ -22,12 +23,8 @@ public class Calendar implements Iterable<Event> {
 	 */
 	@Override
 	public Iterator<Event> iterator() {
-		List<Event> orderedList = new LinkedList<Event>();
-		PriorityQueue<Event> queueCopy = new PriorityQueue<Event>(eventList);
-		while (!queueCopy.isEmpty()) {
-			orderedList.add(queueCopy.poll());
-		}
-		return orderedList.iterator();
+		Collections.sort(eventList);
+		return eventList.iterator();
 	}
 	
 	/**

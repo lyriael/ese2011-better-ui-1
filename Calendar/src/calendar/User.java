@@ -27,16 +27,8 @@ public class User implements Iterable<Calendar> {
 		return name;
 	}
 	
-	private Event getNextEvent() {
-		//TODO: 
-		/*
-			Event nextEvent = 
-		for (Calendar c: this) {
-			Event nextEvent = c.getNextEvent();
-		}
-		throw new NoSuchElementException();
-		*/
-		return null;
+	public Event getNextEvent() {
+		throw new RuntimeException("Not implemented yet!");
 	}
 
 	@Override

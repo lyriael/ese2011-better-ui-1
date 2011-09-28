@@ -38,7 +38,8 @@ public class testCalendar {
 	}
 	
 	@Test
-	public void shouldHaveName() {
+	public void shouldHaveNameAndOwner() {
+		assertEquals(testCalOwner, testCal.getOwner());
 		assertEquals("TestOwner's Cal", testCal.getCalendarName());
 	}
 	
@@ -94,6 +95,12 @@ public class testCalendar {
 	@Test (expected=NoSuchElementException.class)
 	public void shouldHaveNoEventInFuture() {
 		testCal.getNextEvent();
+	}
+	
+	@Test
+	public void shouldHaveNextEvent() {
+		Event futureEvent = testCal.addEvent("Event in future", "2020-12-10");
+		assertEquals(futureEvent, testCal.getNextEvent());
 	}
 
 }
