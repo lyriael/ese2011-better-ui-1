@@ -1,4 +1,6 @@
-#{extends 'main.html' /}
-#{set title:'Home' /}
+<H1> Hello World! <H2>
 
-#{welcome /}
+#{list items:users, as:'user'}
+	<p><a href=@{Application.showCalendars(user.name)}>${user.name}</a></p>
+#{/list}
+
