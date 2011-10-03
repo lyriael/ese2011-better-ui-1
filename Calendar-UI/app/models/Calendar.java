@@ -85,6 +85,10 @@ public class Calendar implements Iterable<Event> {
 		return (e.isPrivate() && owner == user) || !e.isPrivate();
 	}
 
+	public Event addEvent(Event e) {
+		eventList.add(e);
+		return e;
+	}
 	public Event addEvent(String eventName, String sTime, String eTime) {
 		return this.addEvent(eventName, sTime, eTime, true);
 	}

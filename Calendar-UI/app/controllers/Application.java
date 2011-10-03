@@ -13,7 +13,7 @@ import models.Calendar;
 public	 class Application extends Controller {
 
     public static void index() {
-    	List<User> users = Database.getUsers();
+    	List<User> users = db.getUsers();
         render(users);
     }
     

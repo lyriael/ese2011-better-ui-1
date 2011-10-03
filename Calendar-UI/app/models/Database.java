@@ -19,4 +19,12 @@ public class Database {
 	public Database(LinkedList<User> initialUsers) {
 		this.userList = initialUsers;
 	}
+	
+	public void addUser(User toAddUser) {
+		userList.add(toAddUser);
+	}
+	
+	public List<User> getUsers() {
+		return userList;
+	}
 }
