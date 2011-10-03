@@ -55,6 +55,7 @@ Desktop.ini
 .*
 !.gitignore
 *~
+!.project
 
 # KDE
 .directory
