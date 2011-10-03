@@ -16,7 +16,7 @@ public class Bootstrap extends Job {
 	
     public void doJob() {
 
-    	db = new Database();
+    	db = Database.getInstance();
         if(db.getUsers().isEmpty()) {
         	User testUser = new User("Johnny");
         	Calendar testCalendar = testUser.createCalendar("Hausaufgaben");;

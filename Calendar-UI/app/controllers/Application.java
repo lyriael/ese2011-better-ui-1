@@ -12,19 +12,21 @@ import models.Calendar;
 
 public	 class Application extends Controller {
 
+	private static Database db = Database.getInstance();
+	
     public static void index() {
     	List<User> users = db.getUsers();
         render(users);
     }
     
     public static void showCalendars(String username){
-    	User user = Database.getUserByName(username);
+    	User user = db.getUserByName(username);
     	List<Calendar> calendars = user.getCalendars();
     	render(user, calendars);
     }
-    
+    /*
     public static void showEvents(String username, String calendarname, String message){
-    	User user = Database.getUserByName(username);
+    	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
     	List<Event> events = calendar.getEventsAfter(Database.getUserByName(username), new Date());
     	render(user, calendar, events, message);
@@ -45,5 +47,6 @@ public	 class Application extends Controller {
 		showEvents(user.getName(), calendar.getName(), message);
 
     }
+    */
 
 }

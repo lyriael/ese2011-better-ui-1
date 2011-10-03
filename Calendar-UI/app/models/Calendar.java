@@ -81,6 +81,10 @@ public class Calendar implements Iterable<Event> {
 		return owner;
 		}
 	
+	public String getName() {
+		return calendarName;
+	}
+	
 	private boolean isEventVisibleFor(Event e, User user) {
 		return (e.isPrivate() && owner == user) || !e.isPrivate();
 	}

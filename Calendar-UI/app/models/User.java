@@ -36,5 +36,16 @@ public class User implements Iterable<Calendar> {
 		return calendars.iterator();
 	}
 	
+	public List<Calendar> getCalendars() {
+		return calendars;
+	}
+	
+	public Calendar getCalendarByName(String cName) {
+		for (Calendar c: this) {
+			if (c.getName().equals(cName))
+				return c;
+		}
+		throw new NoSuchElementException("No User with that name!");
+	}
 	
 }
