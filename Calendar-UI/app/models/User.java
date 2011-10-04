@@ -11,9 +11,11 @@ import java.util.TimeZone;
 public class User implements Iterable<Calendar> {
 	private String name;
 	private List<Calendar> calendars;
+	private String password;
 	
-	public User (String name){
+	public User (String name, String password){
 		this.name = name;
+		this.password = password;
 		this.calendars = new LinkedList<Calendar>();
 	}
 	
@@ -46,6 +48,10 @@ public class User implements Iterable<Calendar> {
 				return c;
 		}
 		throw new NoSuchElementException("No User with that name!");
+	}
+
+	public String getPassword() {
+		return password;
 	}
 	
 }

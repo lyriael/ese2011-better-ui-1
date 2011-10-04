@@ -1,6 +1,30 @@
-<H1> Hello World! <H2>
+<H1> Please log in! </H1>
 
+
+<H2>
 #{list items:users, as:'user'}
 	<p><a href=@{Application.showCalendars(user.name)}>${user.name}</a></p>
 #{/list}
+</H2>
 
+#{form @logIn()}
+	#{field 'username'}
+	<center><p>
+	  <label>&{"Username: "}</label>
+	  <input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
+	  <span class="error">${field.error}</span>
+	#{/}
+	</p>
+	
+	<p>
+	#{field 'password'}
+	  <label>&{"Password: "}</label>
+	  <input type="password" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
+	  <span class="error">${field.error}</span>
+	</p>
+	#{/}
+	    <p>
+	        <input type="submit" value="Log in" />
+	    </p>
+	</center>
+#{/form}

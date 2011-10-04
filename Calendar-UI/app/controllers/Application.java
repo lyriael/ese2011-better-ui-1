@@ -7,6 +7,8 @@ import play.mvc.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import org.bouncycastle.openssl.PasswordException;
+
 import models.*;
 import models.Calendar;
 
@@ -19,12 +21,25 @@ public	 class Application extends Controller {
         render(users);
     }
     
+    public static void logIn(String username, String password) {
+    	System.out.println(username + " " + password);
+    	try {
+	    	User user = db.getUserByName(username);
+	    	if (user.getPassword().equals(password))
+	    		System.out.println("Sucessfully logged in");
+	    	else throw new NoSuchElementException("Entered wrong password!");
+    	} catch (NoSuchElementException e) {
+    		String msg = e.getMessage();
+    		render(msg);
+    	}
+    }
+    
     public static void showCalendars(String username){
     	User user = db.getUserByName(username);
     	List<Calendar> calendars = user.getCalendars();
     	render(user, calendars);
     }
-    
+/*    
     public static void showEvents(String username, String calendarname, String message){
     	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
@@ -47,6 +62,6 @@ public	 class Application extends Controller {
 		showEvents(user.getName(), calendar.getName(), message);
 
     }
-    
+    */
 
 }
