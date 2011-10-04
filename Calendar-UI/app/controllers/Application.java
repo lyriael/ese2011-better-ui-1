@@ -50,22 +50,19 @@ public	 class Application extends Controller {
     	render(user, calendar, events);
     }
   
-    /*
+    
     public static void addEvent(String userName, String calendarName, String eventName, String eventStart, String eventEnd){
-    	SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-    	User user = Database.getUserByName(userName);
+    	User user = db.getUserByName(userName);
     	Calendar calendar = user.getCalendarByName(calendarName);
     	String message = null;
     	try{
-    		Date startDate = df.parse(eventStart);
-    		Date endDate = df.parse(eventEnd);
-        	calendar.addEvent(eventName, startDate, endDate, true);
+        	calendar.addEvent(eventName, eventStart, eventEnd, true);
     	}catch(Exception e){
     		message = "invalid Date Format";
     	}
-		showEvents(user.getName(), calendar.getName(), message);
+		//showEvents(user.getName(), calendar.getName(), message);
+    	showEvents(user.getName(), calendar.getName());
 
     }
-    */
 
 }

@@ -1,0 +1,81 @@
+.rightalign {text-align:right}
+#HeadLine {
+
+
+}
+H1 {
+	background: white;
+	color: gray;
+	border: 4px solid gray;
+	padding: 5px;
+}
+
+H2 {
+	color: gray;
+	font-size: 10;
+}
+
+A:LINK,A:VISITED {
+	color: black;
+}
+
+A:HOVER {
+	color: gray;
+}
+
+body
+{
+background-color:#010101;
+}
+
+#welcomeBox {
+	background: white;
+	border: 4px solid grey;
+	max-width: 500px;
+	min-height: 533px;
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+	top: 20px;
+	left: 380px;
+}
+
+#UserBox {
+	background: white;
+	border: 4px solid grey;
+	min-width: 195px;
+	min-height: 382px;
+	position: relative;
+	padding: 20px;
+	float: left;
+	max-width: 200px;
+}
+
+#CalendarBox {
+	margin: auto;
+	margin-left: 10px;
+	background: white;
+	border: 4px solid grey;
+	padding: 20px;
+	min-width: 500px;
+	min-height: 200px;
+	margin-bottom: 14px;
+	float: left
+}
+
+#back {
+	background: white;
+	border: 4px solid grey;
+	text-align: center;
+	padding: 10px;
+	min-width: 50px;
+	position: absolute;
+	top: 70px;
+	left: 635px;
+}
+
+#logoutBox {
+	background: white;
+	border: 4px solid grey;
+	float: right;
+}

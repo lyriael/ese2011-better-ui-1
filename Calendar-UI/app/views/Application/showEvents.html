@@ -9,3 +9,26 @@
 	</p>
 #{/list}
 </div>
+<p>
+<div id=CalendarBox>
+#{form @Application.addEvent()}
+    <p>
+        <label for="eventStart">Start Date (yyyy-MM-dd HH:mm): </label>
+        <input type="text" name="eventStart" id="eventStart" />
+    </p>
+        <p>
+        <label for="eventEnd">End Date (yyyy-MM-dd HH:mm): </label>
+        <input type="text" name="eventEnd" id="eventEnd" />
+    </p>
+    <p>
+        <label for="eventName">Name of the Event: </label>
+        <textarea name="eventName" id="eventName"></textarea>
+    </p>
+    	<input type="hidden" name="userName" id="userName" value="${user.name}" />
+    	<input type="hidden" name="calendarName" id="calendarName" value="${calendar.name}" />
+    <p>
+        <input type="submit" value="Submit your Event" />
+    </p>
+#{/form}
+</div>
+</p>
