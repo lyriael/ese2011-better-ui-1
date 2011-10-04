@@ -37,17 +37,19 @@ public	 class Application extends Controller {
     
     public static void showUserPage(String username){
     	User user = db.getUserByName(username);
+    	String myself = Security.connected();
     	List<Calendar> calendars = user.getCalendars();
     	List<User> allUsers = db.getUsers();
-    	render(user, calendars, allUsers);
+    	render(myself, user, calendars, allUsers);
     }
     
-    public static void showEvents(String username, String calendarname) {
+    public static void showEvents(String username, String calendarname, String msg) {
     	System.out.println(username + " " + calendarname);
     	User user = db.getUserByName(username);
+    	String myself = Security.connected();
     	Calendar calendar = user.getCalendarByName(calendarname);
     	Iterator<Event> events = calendar.getAllVisibleEvents(user);
-    	render(user, calendar, events);
+    	render(myself, user, calendar, events, msg);
     }
   
     
@@ -55,14 +57,13 @@ public	 class Application extends Controller {
     	User user = db.getUserByName(userName);
     	Calendar calendar = user.getCalendarByName(calendarName);
     	String message = null;
-    	try{
+    	//TODO: the error doesn't get thrown here, it's thrown @ compareTo()
+    	try {
         	calendar.addEvent(eventName, eventStart, eventEnd, true);
-    	}catch(Exception e){
-    		message = "invalid Date Format";
+    	} catch (Exception e){
+    		message = e.getMessage();
     	}
-		//showEvents(user.getName(), calendar.getName(), message);
-    	showEvents(user.getName(), calendar.getName());
-
+    	showEvents(user.getName(), calendar.getName(), message);
     }
 
 }

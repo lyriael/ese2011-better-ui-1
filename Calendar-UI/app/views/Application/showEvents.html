@@ -2,6 +2,10 @@
 
 <H1> ${user.name}'s ${calendar.name}, upcoming Events</H1>
 
+#{if msg}
+	<font color="red">${msg}</font>
+#{/if}
+
 <div id=CalendarBox>
 #{list items:events, as:'event'}
 	<p>
@@ -21,13 +25,15 @@
         <input type="text" name="eventEnd" id="eventEnd" />
     </p>
     <p>
-        <label for="eventName">Name of the Event: </label>
+        <label for="eventName">Description of new event: </label>
+    </p>
+    <p>
         <textarea name="eventName" id="eventName"></textarea>
     </p>
     	<input type="hidden" name="userName" id="userName" value="${user.name}" />
     	<input type="hidden" name="calendarName" id="calendarName" value="${calendar.name}" />
     <p>
-        <input type="submit" value="Submit your Event" />
+        <input type="submit" value="Add event to calendar" />
     </p>
 #{/form}
 </div>

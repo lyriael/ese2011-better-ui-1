@@ -5,13 +5,13 @@
 <div id=UserBox>
 <H2> All users: </H2>
 #{list items:allUsers, as:'userIter'}
-	<p><a href=@{Application.showEvents(userIter.name, userIter.name)}>${userIter.name}</a></p>
+	<p><a href=@{Application.showUserPage(userIter.name)}>${userIter.name}</a></p>
 #{/list}
 </div>
 
 <div id=CalendarBox>
-<H2> Your Calendars: </H2>
+<H2> ${user.name}'s calendars: </H2>
 #{list items:calendars, as:'calendar'}
-	<p><a href=@{Application.showEvents(user.name, calendar.name)}>${calendar.name}</a></p>
+	<p><a href=@{Application.showEvents(user.name, calendar.name, null)}>${calendar.name}</a></p>
 #{/list}
 </div>
