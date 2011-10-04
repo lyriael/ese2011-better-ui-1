@@ -53,7 +53,8 @@ public	 class Application extends Controller {
     }
   
     
-    public static void addEvent(String userName, String calendarName, String eventName, String eventStart, String eventEnd){
+    public static void addEvent(String userName, String calendarName,
+    		String eventName, String eventStart, String eventEnd){
     	User user = db.getUserByName(userName);
     	Calendar calendar = user.getCalendarByName(calendarName);
     	String message = null;

@@ -38,7 +38,7 @@ public class Calendar implements Iterable<Event> {
 	
 	public Iterator<Event> getAllVisibleEventsAfter(User user, String startDate) {
 		List<Event> returnedEvents = new LinkedList<Event>();
-		Event dummyEvent = new Event("dummy", startDate);
+		Event dummyEvent = new Event("dummy", startDate, true);
 		if (user == owner){
 			for (Event e: this){
 				if (e.compareTo(dummyEvent)>0)
@@ -62,7 +62,7 @@ public class Calendar implements Iterable<Event> {
 	
 	public List<Event> getListOfSpecificDate(String Date, User user) {
 		List<Event> ListOfSpecificDate = new LinkedList<Event>();
-		Event dummyEvent = new Event("dummy", Date);
+		Event dummyEvent = new Event("dummy", Date, true);
 		for (Event e: this) {
 			if (e.hasSameStartingDateAs(dummyEvent) && 
 					isEventVisibleFor(e, user))
@@ -98,15 +98,14 @@ public class Calendar implements Iterable<Event> {
 	public Event addEvent(String eventName, String sTime, String eTime) {
 		return this.addEvent(eventName, sTime, eTime, true);
 	}
-
-	public Event addEvent(String eventName, String date) {
-		Event newEvent = new Event(eventName, date);
-		eventList.add(newEvent);
-		return newEvent;
-	}
 	
 	public Event addEvent(String eventName, String sTime, String eTime, boolean isPrivate) {
-		Event newEvent = new Event(eventName, sTime, eTime, isPrivate);
+		if (eventName.isEmpty() || sTime.isEmpty())
+			throw new RuntimeException("Please insert at least a start time and description");
+		Event newEvent;
+		if (eTime.isEmpty())
+			newEvent = new Event(eventName, sTime, isPrivate);
+		else newEvent = new Event(eventName, sTime, eTime, isPrivate);
 		eventList.add(newEvent);
 		return newEvent;
 	}

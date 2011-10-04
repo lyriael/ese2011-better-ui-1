@@ -45,12 +45,12 @@ public class Event implements Comparable<Event> {
 	 * Constructor without ending time. Makes an event with the length of one
 	 * hour by default. The visibility is private by default.
 	 */
-	public Event(String eventName, String sTime) {
+	public Event(String eventName, String sTime, boolean isPrivate) {
 		//TODO: convert Strings so they're valid
 		//for now: organized panic.
 		DateTime startTime = new DateTime(sTime);
 		DateTime endTime = startTime.plus(0, 0, 0, 1, 0, 0, DayOverflow.Spillover);
-		fillInData(eventName, startTime, endTime, true);
+		fillInData(eventName, startTime, endTime, isPrivate);
 	}
 
 	public boolean isPrivate(){
