@@ -18,8 +18,7 @@ public	 class Application extends Controller {
 	private static Database db = Database.getInstance();
 	
     public static void index() {
-    	List<User> users = db.getUsers();
-        render(users);
+    	showUserPage(Security.connected());
     }
     
     public static void logIn(String username, String password) {
@@ -29,23 +28,26 @@ public	 class Application extends Controller {
 	    	if (user.getPassword().equals(password))
 	    		System.out.println("Sucessfully logged in");
 	    	else throw new NoSuchElementException("Entered wrong password!");
-	    	showCalendars(username);
+	    	showUserPage(username);
     	} catch (NoSuchElementException e) {
     		String msg = e.getMessage();
     		render(msg);
     	}
     }
     
-    public static void showCalendars(String username){
+    public static void showUserPage(String username){
     	User user = db.getUserByName(username);
     	List<Calendar> calendars = user.getCalendars();
-    	render(user, calendars);
+    	List<User> allUsers = db.getUsers();
+    	render(user, calendars, allUsers);
     }
-    public static void showEvents(String username, String calendarname, String message){
+    
+    public static void showEvents(String username, String calendarname) {
+    	System.out.println(username + " " + calendarname);
     	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
     	Iterator<Event> events = calendar.getAllVisibleEvents(user);
-    	render(user, calendar, events, message);
+    	render(user, calendar, events);
     }
   
     /*

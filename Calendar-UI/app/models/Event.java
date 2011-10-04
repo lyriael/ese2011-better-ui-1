@@ -12,7 +12,7 @@ import java.util.TimeZone;
  */
 public class Event implements Comparable<Event> {
 	
-	private String eventName;
+	public String name;
 	private DateTime startTime;
 	private DateTime endTime;
 	private boolean isPrivate;
@@ -58,7 +58,7 @@ public class Event implements Comparable<Event> {
 	}
 	
 	private void fillInData(String eventName, DateTime startTime, DateTime endTime, boolean isPrivate) {
-		this.eventName = eventName;
+		this.name = eventName;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.isPrivate = isPrivate;
@@ -90,6 +90,6 @@ public class Event implements Comparable<Event> {
 	}
 	
 	public String toString() {
-		return eventName + " " + startTime.format("YYYY-MM-DD");
+		return name + " " + startTime.format("YYYY-MM-DD");
 	}
 }

@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.TimeZone;
 
 public class User implements Iterable<Calendar> {
-	private String name;
+	public String name;
 	private List<Calendar> calendars;
 	private String password;
 	
