@@ -44,12 +44,12 @@ public	 class Application extends Controller {
   
     
     public static void addEvent(String userName, String calendarName,
-    		String eventName, String eventStart, String eventEnd){
+    		String eventName, String eventStart, String eventEnd, boolean isPrivate){
     	User user = db.getUserByName(userName);
     	Calendar calendar = user.getCalendarByName(calendarName);
     	String message = null;
     	try {
-        	calendar.addEvent(eventName, eventStart, eventEnd, true);
+        	calendar.addEvent(eventName, eventStart, eventEnd, isPrivate);
     	} catch (Exception e){
     		message = e.getMessage();
     	}
