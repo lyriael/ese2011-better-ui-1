@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
 <html>
+<STYLE TYPE="text/css">
+<!--
+.rightalign {text-align:right}
+-->
+</STYLE>
     <head>
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
@@ -11,6 +16,9 @@
         #{get 'moreScripts' /}
     </head>
     <body>
+    <p class="rightalign">
+    <a align=right href=http://localhost:9000/logout> Logout </a>
+    </p>
         #{doLayout /}
     </body>
 </html>
