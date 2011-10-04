@@ -1,14 +1,10 @@
 .rightalign {text-align:right}
 
 H1 {
-	background: white;
-	color: gray;
-	border: 4px solid brown;
 	padding: 5px;
 }
 
 H2 {
-	color: gray;
 	font-size: 10;
 }
 
@@ -20,14 +16,7 @@ A:HOVER {
 	color: gray;
 }
 
-body
-{
-background-color: beige;
-}
-
 #welcomeBox {
-	background: white;
-	border: 4px solid brown;
 	max-width: 500px;
 	min-height: 533px;
 	margin: auto;
@@ -38,8 +27,6 @@ background-color: beige;
 }
 
 #UserBox {
-	background: white;
-	border: 4px solid brown;
 	margin-left: 10px;
 	min-width: 195px;
 	min-height: 382px;
@@ -52,8 +39,6 @@ background-color: beige;
 #CalendarBox {
 	margin: auto;
 	margin-left: 10px;
-	background: white;
-	border: 4px solid brown;
 	padding: 20px;
 	min-width: 500px;
 	min-height: 200px;
@@ -62,8 +47,25 @@ background-color: beige;
 }
 
 #logoutBox {
-	background: white;
-	padding: 5px;
-	border: 4px solid brown;
+	padding: 10px;
 	float: right;
+}
+
+textarea#eventName {
+        width: 600px;
+        height: 120px;
+        resize: none
+}
+
+#CalendarBox, #UserBox, #welcomeBox, H1, textarea#eventName {
+	background: white;
+	border: 4px solid saddlebrown;
+}
+
+H1, H2 {
+	color: saddlebrown;
+}
+
+body {
+	background-color: antiquewhite;
 }

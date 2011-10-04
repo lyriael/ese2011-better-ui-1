@@ -11,7 +11,7 @@
         #{get 'moreScripts' /}
     </head>
     <body>
-    <div id=logoutBox> Your name is: ${myself.name}
+    <div id=logoutBox> Your name is: <a href=@{Application.showUserPage(myself.name)}>${myself.name}</a>
     <a href=http://localhost:9000/logout> Logout </a>
     </div>
         #{doLayout /}
