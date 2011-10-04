@@ -53,5 +53,4 @@ public class User implements Iterable<Calendar> {
 	public String getPassword() {
 		return password;
 	}
-	
 }

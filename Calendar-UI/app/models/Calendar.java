@@ -28,11 +28,13 @@ public class Calendar implements Iterable<Event> {
 	}
 	
 	/**
-	 * TODO: Starting Date as Parameter.
+	 * Shows all visible events (since 1900-01-01, which should
+	 * be enough)
 	 * @param user
-	 * @return
 	 */
-	
+	public Iterator<Event> getAllVisibleEvents(User user) {
+		return getAllVisibleEventsAfter(user, "1900-01-01");
+	}
 	
 	public Iterator<Event> getAllVisibleEventsAfter(User user, String startDate) {
 		List<Event> returnedEvents = new LinkedList<Event>();

@@ -47,4 +47,18 @@ public class Database {
 		}
 		throw new NoSuchElementException("No User with that name!");
 	}
+	
+	public User logIn(String username, String password) {
+		User user = null;
+		try {
+	    	user = db.getUserByName(username);
+	    	if (user.getPassword().equals(password))
+	    		System.out.println("Sucessfully logged in");
+	    	else throw new NoSuchElementException("Entered wrong password!");
+    	} catch (NoSuchElementException e) {
+    		user = null;
+    		String msg = e.getMessage();
+    	}
+    	return user;
+	}
 }
