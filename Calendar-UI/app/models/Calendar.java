@@ -109,4 +109,8 @@ public class Calendar implements Iterable<Event> {
 		return newEvent;
 	}
 
+	public List<Event> getAllVisibleEvents(User user) {
+		return getAllVisibleEventsAfter(user, "1900-01-01");
+	}
+
 }

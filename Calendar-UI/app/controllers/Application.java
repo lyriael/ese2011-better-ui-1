@@ -24,11 +24,11 @@ public	 class Application extends Controller {
     	List<Calendar> calendars = user.getCalendars();
     	render(user, calendars);
     }
-    /*
+    
     public static void showEvents(String username, String calendarname, String message){
     	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
-    	List<Event> events = calendar.getEventsAfter(Database.getUserByName(username), new Date());
+    	List<Event> events = calendar.getAllVisibleEvents(db.getUserByName(username));
     	render(user, calendar, events, message);
     }
     
@@ -47,6 +47,6 @@ public	 class Application extends Controller {
 		showEvents(user.getName(), calendar.getName(), message);
 
     }
-    */
+    
 
 }

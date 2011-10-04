@@ -32,8 +32,8 @@ public class Database {
 		this.userList = initialUsers;
 	}
 	
-	public void addUser(User toAddUser) {
-		userList.add(toAddUser);
+	public void addUser(User user) {
+		userList.add(user);
 	}
 	
 	public List<User> getUsers() {

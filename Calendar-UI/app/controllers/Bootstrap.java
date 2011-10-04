@@ -19,6 +19,7 @@ public class Bootstrap extends Job {
     	db = Database.getInstance();
         if(db.getUsers().isEmpty()) {
         	User testUser = new User("Johnny");
+        	User testUser2 = new User("Jack");
         	Calendar testCalendar = testUser.createCalendar("Hausaufgaben");;
         	Event event1, event2;
     		event1 = new Event("event1", "17-1-1990 10:00", "17-1-1990 13:00", true);
@@ -26,6 +27,7 @@ public class Bootstrap extends Job {
 			testCalendar.addEvent(event1);
 			testCalendar.addEvent(event2);
             db.addUser(testUser);
+            db.addUser(testUser2);
         }
 
     }
