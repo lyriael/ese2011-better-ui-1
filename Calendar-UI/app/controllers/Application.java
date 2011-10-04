@@ -37,7 +37,7 @@ public	 class Application extends Controller {
     
     public static void showUserPage(String username){
     	User user = db.getUserByName(username);
-    	String myself = Security.connected();
+    	User myself = db.getUserByName(Security.connected());
     	List<Calendar> calendars = user.getCalendars();
     	List<User> allUsers = db.getUsers();
     	render(myself, user, calendars, allUsers);
@@ -45,10 +45,10 @@ public	 class Application extends Controller {
     
     public static void showEvents(String username, String calendarname, String msg) {
     	System.out.println(username + " " + calendarname);
+    	User myself = db.getUserByName(Security.connected());
     	User user = db.getUserByName(username);
-    	String myself = Security.connected();
     	Calendar calendar = user.getCalendarByName(calendarname);
-    	Iterator<Event> events = calendar.getAllVisibleEvents(user);
+    	Iterator<Event> events = calendar.getAllVisibleEvents(myself);
     	render(myself, user, calendar, events, msg);
     }
   
