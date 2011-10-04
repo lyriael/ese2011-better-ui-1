@@ -1,0 +1,53 @@
+#{extends 'main.html' /}
+
+<H1> Available time formats: </H1>
+
+<div id=CalendarBox>
+ <table border='1' cellpadding='3' cellspacing='0'>
+ <tr><th>Format</th><th>Output</th> <th>Description</th><th>Needs Locale?</th></tr>
+ <tr><td>YYYY</td> <td>1958</td> <td>Year</td><td>...</td></tr>
+ <tr><td>YY</td> <td>58</td> <td>Year without century</td><td>...</td></tr>
+ <tr><td>M</td> <td>4</td> <td>Month 1..12</td><td>...</td></tr>
+ <tr><td>MM</td> <td>04</td> <td>Month 01..12</td><td>...</td></tr>
+ <tr><td>MMM</td> <td>Apr</td> <td>Month Jan..Dec</td><td>Yes</td></tr>
+ <tr><td>MMMM</td> <td>April</td> <td>Month January..December</td><td>Yes</td></tr>
+ <tr><td>DD</td> <td>09</td> <td>Day 01..31</td><td>...</td></tr>
+ <tr><td>D</td> <td>9</td> <td>Day 1..31</td><td>...</td></tr>
+ <tr><td>WWWW</td> <td>Wednesday</td> <td>Weekday Sunday..Saturday</td><td>Yes</td></tr>
+ <tr><td>WWW</td> <td>Wed</td> <td>Weekday Sun..Sat</td><td>Yes</td></tr>
+ <tr><td>hh</td> <td>03</td> <td>Hour 01..23</td><td>...</td></tr>
+ <tr><td>h</td> <td>3</td> <td>Hour 1..23</td><td>...</td></tr>
+ <tr><td>hh12</td> <td>03</td> <td>Hour 01..12</td><td>...</td></tr>
+ <tr><td>h12</td> <td>3</td> <td>Hour 1..12</td><td>...</td></tr>
+ <tr><td>a</td> <td>AM</td> <td>AM/PM Indicator</td><td>Yes</td></tr>
+ <tr><td>mm</td> <td>05</td> <td>Minutes 01..59</td><td>...</td></tr>
+ <tr><td>m</td> <td>5</td> <td>Minutes 1..59</td><td>...</td></tr>
+ <tr><td>ss</td> <td>06</td> <td>Seconds 01..59</td><td>...</td></tr>
+ <tr><td>s</td> <td>6</td> <td>Seconds 1..59</td><td>...</td></tr>
+ <tr><td>f</td> <td>1</td> <td>Fractional Seconds, 1 decimal</td><td>...</td></tr>
+ <tr><td>ff</td> <td>12</td> <td>Fractional Seconds, 2 decimals</td><td>...</td></tr>
+ <tr><td>fff</td> <td>123</td> <td>Fractional Seconds, 3 decimals</td><td>...</td></tr>
+ <tr><td>ffff</td> <td>1234</td> <td>Fractional Seconds, 4 decimals</td><td>...</td></tr>
+ <tr><td>fffff</td> <td>12345</td> <td>Fractional Seconds, 5 decimals</td><td>...</td></tr>
+ <tr><td>ffffff</td> <td>123456</td> <td>Fractional Seconds, 6 decimals</td><td>...</td></tr>
+ <tr><td>fffffff</td> <td>1234567</td> <td>Fractional Seconds, 7 decimals</td><td>...</td></tr>
+ <tr><td>ffffffff</td> <td>12345678</td> <td>Fractional Seconds, 8 decimals</td><td>...</td></tr>
+ <tr><td>fffffffff</td> <td>123456789</td> <td>Fractional Seconds, 9 decimals</td><td>...</td></tr>
+ <tr><td>|</td> <td>(no example)</td> <td>Escape characters</td><td>...</td></tr>
+ </table>
+ </div>
+ <div id=CalendarBox>
+ <H2>Examples:</H2>
+  <table border='1' cellpadding='3' cellspacing='0'>
+ <tr><th>Format</th><th>Output</th></tr>
+ <tr><td>YYYY-MM-DD hh:mm:ss.fffffffff a</td> <td>1958-04-09 03:05:06.123456789 AM</td></tr>
+ <tr><td>YYYY-MM-DD hh:mm:ss.fff a</td> <td>1958-04-09 03:05:06.123 AM</td></tr>
+ <tr><td>YYYY-MM-DD</td> <td>1958-04-09</td></tr>
+ <tr><td>hh:mm:ss.fffffffff</td> <td>03:05:06.123456789</td></tr>
+ <tr><td>hh:mm:ss</td> <td>03:05:06</td></tr>
+ <tr><td>YYYY-M-D h:m:s</td> <td>1958-4-9 3:5:6</td></tr>
+ <tr><td>WWWW, MMMM D, YYYY</td> <td>Wednesday, April 9, 1958</td></tr>
+ <tr><td>WWWW, MMMM D, YYYY |at| D a</td> <td>Wednesday, April 9, 1958 at 3 AM</td></tr>
+ </table>
+ </div>
+ 

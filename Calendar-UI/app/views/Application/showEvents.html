@@ -20,13 +20,17 @@
 <div id=CalendarBox>
 #{form @Application.addEvent()}
     <p>
-        <label for="eventStart">Start Date (yyyy-MM-dd HH:mm): </label>
+        <label for="eventStart">Start date: </label>
         <input type="text" name="eventStart" id="eventStart" />
     </p>
         <p>
-        <label for="eventEnd">End Date (yyyy-MM-dd HH:mm): </label>
+        <label for="eventEnd">End date: </label>
         <input type="text" name="eventEnd" id="eventEnd" />
     </p>
+    <p>
+        <a href=@{Application.AvailableFormats()}> View available date formats </a>
+    </p>
+    
     <p>
         <label for="eventName">Description of new event: </label>
     </p>

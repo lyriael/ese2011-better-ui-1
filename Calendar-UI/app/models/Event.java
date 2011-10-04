@@ -62,6 +62,8 @@ public class Event implements Comparable<Event> {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.isPrivate = isPrivate;
+		if (startTime.gt(endTime))
+			throw new IllegalArgumentException("The end date has to be after the start date!");
 		this.currentTZ = TimeZone.getDefault();
 	}
 	

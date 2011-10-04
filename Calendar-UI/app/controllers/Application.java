@@ -21,18 +21,9 @@ public	 class Application extends Controller {
     	showUserPage(Security.connected());
     }
     
-    public static void logIn(String username, String password) {
-    	System.out.println(username + " " + password);
-    	try {
-	    	User user = db.getUserByName(username);
-	    	if (user.getPassword().equals(password))
-	    		System.out.println("Sucessfully logged in");
-	    	else throw new NoSuchElementException("Entered wrong password!");
-	    	showUserPage(username);
-    	} catch (NoSuchElementException e) {
-    		String msg = e.getMessage();
-    		render(msg);
-    	}
+    public static void AvailableFormats() {
+    	User myself = db.getUserByName(Security.connected());
+    	render(myself);
     }
     
     public static void showUserPage(String username){
@@ -44,7 +35,6 @@ public	 class Application extends Controller {
     }
     
     public static void showEvents(String username, String calendarname, String msg) {
-    	System.out.println(username + " " + calendarname);
     	User myself = db.getUserByName(Security.connected());
     	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
@@ -58,7 +48,6 @@ public	 class Application extends Controller {
     	User user = db.getUserByName(userName);
     	Calendar calendar = user.getCalendarByName(calendarName);
     	String message = null;
-    	//TODO: the error doesn't get thrown here, it's thrown @ compareTo()
     	try {
         	calendar.addEvent(eventName, eventStart, eventEnd, true);
     	} catch (Exception e){
