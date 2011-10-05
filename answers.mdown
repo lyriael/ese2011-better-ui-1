@@ -8,3 +8,8 @@ Every HTTP request is treated the same:
 
 # Question 2
 By writing unit tests (for the model-part of the application), functional tests (for testing the controller objects) and finally selenium tests, which is the same as running it in a browser and typing/clicking the stuff yourself. 
+
+# Notes
+Obviously, you have to use the command "play run Calendar-UI", not the one
+requested in the exercise sheet. Sorry about that. (I DID move the
+ repository, though..). Available Users are Johnny (pw: J) and Jack (pw: Ja)
