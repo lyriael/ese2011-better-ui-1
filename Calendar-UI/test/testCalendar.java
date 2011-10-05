@@ -32,7 +32,7 @@ public class testCalendar extends UnitTest{
 		testUser = new User("Test", "123");
 		testCal = new Calendar("TestOwner's Cal", testCalOwner);
 		DateTime now = DateTime.now(TimeZone.getDefault());
-		today = testCal.addEvent("today", now.toString());
+		today = testCal.addEvent("today", now.toString(), "", true);
 		XmasLastYear =  testCal.addEvent("Xmas", "2010-12-25 18:00:00", "2010-12-25 20:00:00", false);
 		bdayParty = testCal.addEvent("Bday Party", "2011-02-19 18:00:00", "2011-02-19 20:00:00", false);
 		go2bed = testCal.addEvent("Zzz", "2011-02-19 22:00:00", "2011-02-20 08:00:00", false);
@@ -108,7 +108,7 @@ public class testCalendar extends UnitTest{
 	
 	@Test
 	public void shouldHaveNextEvent() {
-		Event futureEvent = testCal.addEvent("Event in future", "2020-12-10");
+		Event futureEvent = testCal.addEvent("Event in future", "2020-12-10", "", true);
 		assertEquals(futureEvent, testCal.getNextEvent());
 	}
 

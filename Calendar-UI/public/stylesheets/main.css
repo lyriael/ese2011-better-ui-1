@@ -51,21 +51,26 @@ A:HOVER {
 	float: right;
 }
 
+#CalendarBox, #UserBox, #welcomeBox, H1, textarea#eventName {
+	background: #E6FAF5;
+	border: 4px solid LightSkyBlue;
+}
+
 textarea#eventName {
         width: 600px;
         height: 120px;
-        resize: none
-}
-
-#CalendarBox, #UserBox, #welcomeBox, H1, textarea#eventName {
-	background: white;
-	border: 4px solid saddlebrown;
+        resize: none;
+        background: white;
 }
 
 H1, H2 {
-	color: saddlebrown;
+	color: MidnightBlue;
+}
+
+error {
+	color: red;
 }
 
 body {
-	background-color: antiquewhite;
+	background-color: MidnightBlue;
 }
