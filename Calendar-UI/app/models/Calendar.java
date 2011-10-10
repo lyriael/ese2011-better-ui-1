@@ -110,4 +110,9 @@ public class Calendar implements Iterable<Event> {
 		return newEvent;
 	}
 
+	public void getEvent(String eventName) {
+		// TODO Lyrial pls help me!
+		
+	}
+
 }

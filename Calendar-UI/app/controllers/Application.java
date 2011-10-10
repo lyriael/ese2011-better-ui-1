@@ -41,6 +41,14 @@ public	 class Application extends Controller {
     	Iterator<Event> events = calendar.getAllVisibleEvents(myself);
     	render(myself, user, calendar, events, msg);
     }
+    
+    public static void editEvent(String username, String calendarname, String eventName, String msg) {
+    	User myself = db.getUserByName(Security.connected());
+    	User user = db.getUserByName(username);
+    	Calendar calendar = user.getCalendarByName(calendarname);
+    	Event e = calendar.getEvent(eventName);
+    	render(myself, e.name, e.getStartTime(), e.getEndTime(), e.getIsPrivate());
+    }
   
     
     public static void addEvent(String userName, String calendarName,
