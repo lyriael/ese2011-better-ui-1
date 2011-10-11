@@ -100,11 +100,17 @@ public class CalendarUtil {
 
 	public List<Integer> getNextMonthDates() {
 		
-		List<Integer> nextMonth = new ArrayList<Integer>();
 		cal.set(cal.MONTH, 1);
-		
+		List<Integer> nextMonthTemp = new ArrayList<Integer>();
+		nextMonthTemp = getThisMonthDates();
+		int lastDayNextMonth = getFirstDayInMonth() - 1;
 		cal.set(cal.MONTH, -1);
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Integer> nextMonth = new ArrayList<Integer>();
+		for(int i = 0; i<lastDayNextMonth; i++){
+			nextMonth.add(nextMonthTemp.get(i));
+		}
+				
+		return nextMonth;
 	}
 }	
