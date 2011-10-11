@@ -72,10 +72,10 @@ public class CalendarUtil {
 	 * @return weekday
 	 */
 	public int getFirstDayInMonth(){
-		int temp = cal.get(cal.DAY_OF_WEEK);
+		int temp = cal.DAY_OF_WEEK;
 		temp = (temp + 6)%7;
 		return temp;
-		
+			
 	}
 
 	public List<Integer> getLastMonthDates() {
@@ -122,5 +122,9 @@ public class CalendarUtil {
 		Date date = cal.getTime();
 		String title = String.format("%tB %tY", date, date);
 		return title;
+	}
+	//for testing only
+	public void setAtDate(int year, int month, int date){
+		cal.set(year, month-1, date);
 	}
 }	
