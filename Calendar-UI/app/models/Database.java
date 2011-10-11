@@ -57,7 +57,6 @@ public class Database {
 	    	else throw new NoSuchElementException("Entered wrong password!");
     	} catch (NoSuchElementException e) {
     		user = null;
-    		String msg = e.getMessage();
     	}
     	return user;
 	}

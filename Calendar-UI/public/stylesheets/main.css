@@ -5,6 +5,7 @@ H1 {
 }
 
 H2 {
+	padding-left: .2em;
 	font-size: 10;
 }
 
@@ -31,7 +32,7 @@ A:HOVER {
 	min-width: 195px;
 	min-height: 382px;
 	position: relative;
-	padding: 20px;
+	padding-left: 1em;
 	float: left;
 	max-width: 200px;
 }
@@ -39,8 +40,8 @@ A:HOVER {
 #CalendarBox {
 	margin: auto;
 	margin-left: 10px;
-	padding: 20px;
-	min-width: 500px;
+	padding-left: 1em;
+	min-width: 46%;
 	min-height: 200px;
 	margin-bottom: 14px;
 	float: left
@@ -91,13 +92,8 @@ body {
  * Tim Wright
  * Chris Coyier
  -----------------------------*/
-/*
-*               {margin:0;padding:0;}
-body            {
-                        background: url(images/bg.jpg) top center no-repeat #545454;}
-body *          {display:inline;}
-*/
-ol.calendar    {width:50em;margin:0 auto;display:block; min-height: 200px;
+
+ol.calendar    {width:52em;margin:0 auto;display:block; min-height: 200px;
                      padding: 12px 0 0 20px;}
 li              {list-style:none;}
 p.link          {text-align:center;display: block;}
@@ -130,6 +126,7 @@ li#nextmonth li    { background: #5E90AE;}
 
 #hasEvent {
 	font-weight: bold;
+	color: red;
 }
 /*
  * Weeekdays */

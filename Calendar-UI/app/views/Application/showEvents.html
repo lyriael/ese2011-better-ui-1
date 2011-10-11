@@ -53,6 +53,7 @@
 
 </div>
 <div id=CalendarBox>
+<H2> All (visible) events: </H2>
 #{list items:events, as:'event'}
 	<p>
 		${event.name} from ${event.startTime.toString()} to ${event.endTime.toString()}
@@ -65,6 +66,7 @@
 #{if user==myself}
 <div id=CalendarBox>
 #{form @Application.addEvent()}
+<H2> Add a new event: </H2>
     <p>
         <label for="eventStart">Start date: </label>
         <input type="text" name="eventStart" id="eventStart" />
