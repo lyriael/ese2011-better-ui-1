@@ -10,7 +10,9 @@
 
 <div id=DateBox>
 <ol class="calendar" start="6">
-		<H1><a href=@{Application.previousMonth()}> &lt;&lt</a>;${cu.getTitle()} <a href=@{Applications.nextMonth()}>&gt;&gt;</a></H1>
+		<H1><a href=@{Application.previousMonth(user.name, calendar.name)}> &lt;&lt;</a>
+		${cu.getTitle()} 
+		<a href=@{Application.nextMonth(user.name, calendar.name)}> &gt;&gt;</a></H1>
         <li id="weekdays">
                 <ol>
                         <li>Monday</li>
