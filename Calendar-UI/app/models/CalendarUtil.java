@@ -74,8 +74,10 @@ public class CalendarUtil {
 	 */
 	public int getFirstDayInMonth(){
 		cal.set(cal.DAY_OF_MONTH, 1);
+		System.out.println("Set to the first of month: " + cal.getTime().toString());
 		int temp = cal.get(cal.DAY_OF_WEEK);
-		temp = (temp + 6)%7;
+		temp = ((temp + 5)%7)+1;
+		System.out.println("Get the weekday of the first: " + temp);
 		return temp;
 			
 	}
@@ -92,15 +94,16 @@ public class CalendarUtil {
 	public List<Integer> getNextMonthDates() {
 		
 		int lastDay = cal.getActualMaximum(cal.DATE);
+		System.out.println("Last day in this month: "+lastDay);
 		cal.set(cal.DAY_OF_MONTH, lastDay);
-		int lastDayOfWeek = (cal.get(cal.DAY_OF_WEEK)+6)%7;
+		int lastDayOfWeek = (((cal.get(cal.DAY_OF_WEEK))+5)%7)+1;
 		cal.set(cal.DAY_OF_MONTH, 1);	//setting default
 		int remainingDays = 7-lastDayOfWeek;
 		
 		List<Integer> nextMonth = new ArrayList<Integer>();
 		for(int i = 1; i<= remainingDays; i++){
 			nextMonth.add((Integer)i);
-		}		
+		}	
 		return nextMonth;
 	}
 	
@@ -131,5 +134,9 @@ public class CalendarUtil {
 	//for testing only
 	public void setAtDate(int year, int month, int date){
 		cal.set(year, month-1, date);
+	}
+	
+	private int startMonday(int startSunday){
+		return ((startSunday+5)%7)+1;
 	}
 }	
