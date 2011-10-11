@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -102,13 +103,22 @@ public class CalendarUtil {
 		return nextMonth;
 	}
 	
+
 	public List<Integer> getLastMonthDates() {
 		
 		int firstDay = getFirstDayInMonth();
+		cal.set(cal.DAY_OF_MONTH, 1);
+		cal.add(cal.DAY_OF_MONTH, -1);
+
+		int lastDayOflastMonth = cal.get(cal.DAY_OF_MONTH);	
+		cal.add(cal.DAY_OF_WEEK, 1);
+		
 		List<Integer> lastMonth = new ArrayList<Integer>();
 		for(int i = 1; i < firstDay; i++){
-			lastMonth.add((Integer)i);
+			lastMonth.add((Integer)lastDayOflastMonth);
+			lastDayOflastMonth--;
 		}
+		Collections.reverse(lastMonth);
 		return lastMonth;
 	}
 	
