@@ -5,11 +5,10 @@ import java.util.Date;
 public class CalendarUtil {
 
 	private static java.util.Calendar cal = java.util.Calendar.getInstance();
-	private static Date today;
 	private static CalendarUtil util;
 	
 	private CalendarUtil(){
-		today = new Date();
+		cal.set(cal.DATE, 1);
 	}
 	
 	/**
@@ -24,6 +23,12 @@ public class CalendarUtil {
 		return util;	
 	}
 	
+	/**
+	 * Returns the current month as <code> int</code>, starting <br>
+	 * with <code>0</code> (January) and ending with <code> 11</code> (December).<br>
+	 * 
+	 * @return month
+	 */
 	public static int getMonth(){
 		return cal.get(cal.MONTH);
 	}
@@ -45,8 +50,14 @@ public class CalendarUtil {
 		return cal.getActualMaximum(cal.DATE);
 	}
 	
-	public static int getFirstSundayInMonth(){
-		//TODO
-		return 0;
+	/**
+	 * Returns the first weekday of this month as <code> int</code>. <br>
+	 * Sunday is the 1. and so on till Saturday as the 7. day.<br>
+	 * For example, if Tuesday is the first day in a month, then <code> 3 </code> is returned.
+	 * 
+	 * @return weekday
+	 */
+	public static int getFirstDayInMonth(){
+		return cal.get(cal.DAY_OF_WEEK);
 	}
 }	
