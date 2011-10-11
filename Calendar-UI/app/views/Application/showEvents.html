@@ -33,7 +33,7 @@
         <li id="thismonth">
                 <ol>
                          #{list items:thisMonthDates, as:'date'}
-								<div #{if calendar.hasEventOn(date, ${cu.getMonth()}, ${cu.getYear()})} id="hasEvent" #{/if}>
+								<div #{if calendar.hasEventOn(date, ${cu.getMonth()}, ${cu.getYear()}} id="hasEvent" #{/if}>
 								<li> ${date} </li> </div>
 						 #{/list}
                 </ol>
