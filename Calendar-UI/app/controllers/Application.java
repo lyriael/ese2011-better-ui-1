@@ -39,7 +39,11 @@ public	 class Application extends Controller {
     	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
     	Iterator<Event> events = calendar.getAllVisibleEvents(myself);
-    	render(myself, user, calendar, events, msg);
+    	CalendarUtil cu = CalendarUtil.getInstanceToday();
+    	List<Integer> lastMonthDates = cu.getLastMonthDates();
+    	List<Integer> nextMonthDates = cu.getThisMonthDates();
+    	List<Integer> thisMonthDates = cu.getNextMonthDates();
+    	render(myself, user, calendar, events, lastMonthDates, thisMonthDates, nextMonthDates, msg);
     }
     
     public static void showEditEvent(String username, String calendarname, String eventName) {

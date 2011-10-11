@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 public class CalendarUtil {
 
@@ -70,5 +71,20 @@ public class CalendarUtil {
 		temp = (temp + 6)%7;
 		return temp;
 		
+	}
+
+	public List<Integer> getLastMonthDates() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Integer> getThisMonthDates() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Integer> getNextMonthDates() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }	
