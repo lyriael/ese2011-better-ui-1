@@ -93,7 +93,7 @@ body            {
                         background: url(images/bg.jpg) top center no-repeat #545454;}
 body *          {display:inline;}
 */
-ol.calendar    {width:52em;margin:0 auto;display:block; min-height: 200px;
+ol.calendar    {width:47em;margin:0 auto;display:block; min-height: 200px;
                         background: url(images/tl.png) top left no-repeat; padding: 12px 0 0 20px;}
 li              {list-style:none;}
 p.link          {text-align:center;display: block;}
@@ -103,7 +103,7 @@ p.link          {text-align:center;display: block;}
 /*
  * Day styles
  -------------------------*/
-li li           {width:4em;height:4em;float:left;margin:.2em; padding:.2em;overflow:auto;
+li li           {width:5.4em;height:5.4em;float:left;margin:.2em; padding:.2em;overflow:auto;
                         background: url(images/day-bg.png) bottom right no-repeat; }
 
 /*
@@ -125,3 +125,9 @@ li li.holiday    {  }
  -------------------------*/
 li#lastmonth li,
 li#nextmonth li    { background: #545454 /*url(images/day-bg-inactive.png)*/;}
+
+/*
+ * Weeekdays */
+ 
+ li#weekdays li { height:auto;float:auto; }
+ 
