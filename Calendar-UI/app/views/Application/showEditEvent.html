@@ -1,0 +1,40 @@
+#{extends 'main.html' /}
+
+<H1> ${user.name}'s ${calendar.name}, editing "${e.name}"</H1>
+
+#{if msg}
+<H1>
+	<error>${msg}</error>
+</H1>
+#{/if}
+
+<div id=CalendarBox>
+#{form @Application.editEvent()}
+    <p>
+        <label for="eventStart">Start date: </label>
+        <input type="text" name="eventStart" id="eventStart" value="${e.getStartTime().toString()}" />
+    </p>
+        <p>
+        <label for="eventEnd">End date: </label>
+        <input type="text" name="eventEnd" id="eventEnd" value="${e.getEndTime().toString()}"/>
+    </p>
+    <p>
+        <a href=@{Application.AvailableFormats()}> View available date formats </a>
+    </p>
+    
+    <p>
+        <label for="eventName">Description of event: </label>
+        <input type="text" name="eventName" id="eventName" value="${e.name}"/>
+    </p>
+    	<input type="hidden" name="userName" id="userName" value="${user.name}" />
+    	<input type="hidden" name="calendarName" id="calendarName" value="${calendar.name}" />
+   	<p>
+		<input type="checkbox" name="isPrivate" #{if e.isPrivate()} checked="checked" #{/if}/>
+		<label for="isPrivate">Make event private</label>
+	</p>
+    <p>
+        <input type="submit" value="Save edited event" />
+    </p>
+#{/form}
+</div>
+</p>

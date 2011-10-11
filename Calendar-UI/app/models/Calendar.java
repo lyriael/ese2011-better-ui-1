@@ -71,6 +71,10 @@ public class Calendar implements Iterable<Event> {
 		return ListOfSpecificDate;	
 	}
 	
+	/**
+	 * not used right now..
+	 * @return
+	 */
 	public Event getNextEvent() {
 		for (Event e: this) {
 			if (!e.startsInPast())
@@ -110,9 +114,16 @@ public class Calendar implements Iterable<Event> {
 		return newEvent;
 	}
 
-	public void getEvent(String eventName) {
-		// TODO Lyrial pls help me!
+	public Event getEventByName(String eventName) {
+		for (Event e: this) 
+			if (e.name.equals(eventName))
+				return e;
 		
+		throw new NoSuchElementException("No Event with that name!");
+		}
+
+	public boolean removeEvent(Event e) {
+		return eventList.remove(e);
+	}
 	}
 
-}

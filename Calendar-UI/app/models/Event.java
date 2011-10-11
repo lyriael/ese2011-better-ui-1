@@ -94,9 +94,4 @@ public class Event implements Comparable<Event> {
 	public String toString() {
 		return name + " " + startTime.format("YYYY-MM-DD");
 	}
-
-	public Object getIsPrivate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

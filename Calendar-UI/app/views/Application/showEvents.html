@@ -68,6 +68,7 @@
 #{list items:events, as:'event'}
 	<p>
 		${event.name} from ${event.startTime.toString()} to ${event.endTime.toString()}
+		<a href=@{Application.showEditEvent(user.name, calendar.name, event.name)}> Edit </a>
 	</p>
 #{/list}
 </div>

@@ -42,22 +42,24 @@ public	 class Application extends Controller {
     	render(myself, user, calendar, events, msg);
     }
     
-    public static void editEvent(String username, String calendarname, String eventName, String msg) {
+    public static void showEditEvent(String username, String calendarname, String eventName) {
     	User myself = db.getUserByName(Security.connected());
     	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
-    	Event e = calendar.getEvent(eventName);
-    	render(myself, e.name, e.getStartTime(), e.getEndTime(), e.getIsPrivate());
+    	Event e = calendar.getEventByName(eventName);
+    	render(myself, user, calendar, e);
     }
-  
     
-    public static void addEvent(String userName, String calendarName,
+    public static void addEvent(Event oldEvent, String userName, String calendarName,
     		String eventName, String eventStart, String eventEnd, boolean isPrivate){
     	User user = db.getUserByName(userName);
     	Calendar calendar = user.getCalendarByName(calendarName);
     	String message = null;
     	try {
         	calendar.addEvent(eventName, eventStart, eventEnd, isPrivate);
+        	if (oldEvent!=null)
+        		calendar.removeEvent(oldEvent);
+    		System.out.println("removed " + oldEvent);
     	} catch (Exception e){
     		message = e.getMessage();
     	}
