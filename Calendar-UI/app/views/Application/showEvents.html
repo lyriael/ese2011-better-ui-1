@@ -10,7 +10,7 @@
 
 <div id=DateBox>
 <ol class="calendar" start="6">
-		<H1> ${cu.getTitle()}</H1>
+		<H1> ${ cu.getTitle() } </H1>
         <li id="weekdays">
                 <ol>
                         <li>Monday</li>
@@ -24,9 +24,8 @@
         </li>
         <li id="lastmonth">
                 <ol>
-                        #{list items:lastMonthDates, as:'date'}
-								<div {#if calendar.hasEventOn(date, month, year)}id="hasEvent" {/if}>
-								<li> ${date})) </li></div>
+                        #{list items:lastMonthDates, as:'date'}	
+								<li> ${date})) </li>
 						#{/list}
                 </ol>
         </li>
@@ -34,7 +33,8 @@
         <li id="thismonth">
                 <ol>
                          #{list items:thisMonthDates, as:'date'}
-								<li> ${date} </li>
+								<div #{if calendar.hasEventOn(date, ${cu.getMonth()}, ${cu.getYear()})} id="hasEvent" #{/if}>
+								<li> ${date} </li> </div>
 						 #{/list}
                 </ol>
         </li>

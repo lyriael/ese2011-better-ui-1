@@ -41,10 +41,14 @@ public	 class Application extends Controller {
     	Iterator<Event> events = calendar.getAllVisibleEvents(myself);
     	CalendarUtil cu = CalendarUtil.getInstanceToday();
     	List<Integer> lastMonthDates = cu.getLastMonthDates();
-    	List<Integer> nextMonthDates = cu.getThisMonthDates();
-    	List<Integer> thisMonthDates = cu.getNextMonthDates();
-    	
-    	render(myself, user, calendar, events, lastMonthDates, thisMonthDates, nextMonthDates, msg);
+    	List<Integer> thisMonthDates = cu.getThisMonthDates();
+    	List<Integer> nextMonthDates = cu.getNextMonthDates();
+    	System.out.println(lastMonthDates);
+    	System.out.println();
+    	int month = 11;
+    	int year = 2011;
+    	render(myself, user, calendar, events, lastMonthDates, 
+    			thisMonthDates, nextMonthDates, msg , cu, month, year);
     }
     
     public static void showEditEvent(String username, String calendarname, String eventName) {
