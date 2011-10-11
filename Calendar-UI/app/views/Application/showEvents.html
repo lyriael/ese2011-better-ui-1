@@ -56,9 +56,11 @@
 <H2> All (visible) events: </H2>
 #{list items:events, as:'event'}
 	<p>
-		${event.name} from ${event.startTime.toString()} to ${event.endTime.toString()}
+		${event.name} from ${event.startTime.toString()} to ${event.endTime.toString()} 
+		#{if user==myself}
 		<a href=@{Application.showEditEvent(user.name, calendar.name, event.name)}>Edit</a> 
-		<a href=@{Application.removeEvent(user.name, calendar.name, event.name)}>Delete</a>
+		<a href=@{Application.removeEvent(user.name, calendar.name, event.name)}>Delete</a> 
+		#{/if}
 	</p>
 #{/list}
 </div>

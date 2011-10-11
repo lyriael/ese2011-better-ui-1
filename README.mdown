@@ -1,16 +1,13 @@
-# Question 1
-Every HTTP request is treated the same:
-
-1.  The request is received by the framework
-2.  The rules defined in routes invoke the coressponding method
-3.  The method is executed
-4.  The view is generated (usually html)
-5.  The result of 4 is sent back as response
-
-# Question 2
-By writing unit tests (for the model-part of the application), functional tests (for testing the controller objects) and finally selenium tests, which is the same as running it in a browser and typing/clicking the stuff yourself. 
-
 # Notes
-Obviously, you have to use the command "play run Calendar-UI", not the one
+Same as last week: Obviously, you have to use the command "play run Calendar-UI", not the one
 requested in the exercise sheet. Sorry about that. (I DID move the
  repository, though..). Available Users are Johnny (pw: J) and Jack (pw: Ja)
+
+# New Notes!
+When running the play server at first time, I get a strange compilation error concerning the secure framework.
+
+>Compilation error
+The file {module:secure}/app/controllers/Secure.java could not be compiled. Error raised is : The type Secure is already defined
+
+Reloading the page for about five times fixes it, though. Maybe you can supply me with an answer to this...?
+
