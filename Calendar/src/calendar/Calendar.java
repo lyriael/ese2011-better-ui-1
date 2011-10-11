@@ -27,12 +27,6 @@ public class Calendar implements Iterable<Event> {
 		return eventList.iterator();
 	}
 	
-	/**
-	 * TODO: Starting Date as Parameter.
-	 * @param user
-	 * @return
-	 */
-	
 	
 	public Iterator<Event> getAllVisibleEventsAfter(User user, String startDate) {
 		List<Event> returnedEvents = new LinkedList<Event>();
