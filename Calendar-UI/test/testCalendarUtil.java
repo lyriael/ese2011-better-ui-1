@@ -40,5 +40,44 @@ public class testCalendarUtil extends UnitTest{
 	public void shouldGiveFirstDayOfMonth(){
 		assertEquals(6, util.getFirstDayInMonth()); //samstag == 6.
 	}
+	
+	@Test
+	public void shouldGoForthAndBackInMonths(){
+		util.previousMonth();
+		assertEquals(9,util.getMonth());
+		util.nextMonth();
+		assertEquals(10, util.getMonth());
+	}
+	
+	@Test
+	public void shouldGiveListOfCurrentMonth(){ //Oktober im 2011
+		assertEquals(31, util.getThisMonthDates().size());
+		assertEquals(1, (int)util.getThisMonthDates().get(0));
+		
+		assertEquals(6, util.getNextMonthDates().size());
+//		assertEquals(5, util.getLastMonthDates().size());		
+	}
+	
+	@Test
+	public void shouldGiveListOfNextMonth(){ //November im 2011
+		util.nextMonth();
+		assertEquals(11, util.getMonth());
+		assertEquals(30, util.getThisMonthDates().size());
+		assertEquals(1, (int)util.getThisMonthDates().get(0));
+		
+		assertEquals(4, util.getNextMonthDates().size());
+//		assertEquals(5, util.getLastMonthDates().size());		
+	}	
 
+	@Test
+	public void shouldGiveListOfLastMonth(){ //September im 2011
+		util.previousMonth();
+		assertEquals(9, util.getMonth());
+		assertEquals(9, util.getMonth());
+		assertEquals(30, util.getThisMonthDates().size());
+		assertEquals(1, (int)util.getThisMonthDates().get(0));
+		
+		assertEquals(2, util.getNextMonthDates().size());
+//		assertEquals(5, util.getLastMonthDates().size());		
+	}
 }

@@ -78,7 +78,33 @@ public class CalendarUtil {
 			
 	}
 
+	public List<Integer> getThisMonthDates() {
+		List<Integer> currentMonth = new ArrayList<Integer>();
+		int noOfDays = getNumberOfDaysOfMonth();
+		for(int i = 1; i<= noOfDays; ++i){
+			currentMonth.add(i);
+		}
+		return currentMonth;
+	}
+
+	public List<Integer> getNextMonthDates() {
+		
+		int lastDay = cal.getActualMaximum(cal.DATE);
+		cal.set(cal.DAY_OF_MONTH, lastDay);
+		int lastDayOfWeek = (cal.get(cal.DAY_OF_WEEK)+6)%7;
+		cal.set(cal.DAY_OF_MONTH, 1);	//setting default
+		int remainingDays = 7-lastDayOfWeek;
+		
+		List<Integer> nextMonth = new ArrayList<Integer>();
+		for(int i = 1; i<= remainingDays; i++){
+			nextMonth.add((Integer)i);
+		}		
+		return nextMonth;
+	}
+	
 	public List<Integer> getLastMonthDates() {
+		
+		int firstDay = getFirstDayInMonth();
 		cal.set(cal.MONTH, -1);
 		List<Integer> lastMonthTemp = new ArrayList<Integer>();
 		lastMonthTemp = getThisMonthDates();		
@@ -91,31 +117,6 @@ public class CalendarUtil {
 		}
 		
 		return lastMonth;
-	}
-
-	public List<Integer> getThisMonthDates() {
-		List<Integer> currentMonth = new ArrayList<Integer>();
-		int noOfDays = getNumberOfDaysOfMonth();
-		for(int i = 1; i<= noOfDays; ++i){
-			currentMonth.add(i);
-		}
-		return currentMonth;
-	}
-
-	public List<Integer> getNextMonthDates() {
-		
-		cal.set(cal.MONTH, 1);
-		List<Integer> nextMonthTemp = new ArrayList<Integer>();
-		nextMonthTemp = getThisMonthDates();
-		int lastDayNextMonth = getFirstDayInMonth() - 1;
-		cal.set(cal.MONTH, -1);
-		
-		List<Integer> nextMonth = new ArrayList<Integer>();
-		for(int i = 0; i<lastDayNextMonth; i++){
-			nextMonth.add(nextMonthTemp.get(i));
-		}
-				
-		return nextMonth;
 	}
 	
 	public String getTitle(){
