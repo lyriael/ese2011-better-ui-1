@@ -113,4 +113,10 @@ public class CalendarUtil {
 				
 		return nextMonth;
 	}
+	
+	public String getTitle(){
+		Date date = cal.getTime();
+		String title = String.format("%tB %tY", date, date);
+		return title;
+	}
 }	
