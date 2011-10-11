@@ -45,10 +45,8 @@ public	 class Application extends Controller {
     	List<Integer> nextMonthDates = cu.getNextMonthDates();
     	System.out.println(lastMonthDates);
     	System.out.println();
-    	int month = 11;
-    	int year = 2011;
     	render(myself, user, calendar, events, lastMonthDates, 
-    			thisMonthDates, nextMonthDates, msg , cu, month, year);
+    			thisMonthDates, nextMonthDates, msg , cu);
     }
     
     public static void showEditEvent(String username, String calendarname, String eventName) {
@@ -58,6 +56,15 @@ public	 class Application extends Controller {
     	Event e = calendar.getEventByName(eventName);
     	render(myself, user, calendar, e);
     	
+    }
+    
+    public static void removeEvent(String username, String calendarname, String eventName) {
+    	User myself = db.getUserByName(Security.connected());
+    	User user = db.getUserByName(username);
+    	Calendar calendar = user.getCalendarByName(calendarname);
+    	Event e = calendar.getEventByName(eventName);
+    	calendar.removeEvent(e);
+    	showEvents(user.getName(), calendar.getName(), "Deleted " + eventName);
     }
     
     
