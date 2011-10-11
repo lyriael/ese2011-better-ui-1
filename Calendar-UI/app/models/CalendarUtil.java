@@ -105,17 +105,10 @@ public class CalendarUtil {
 	public List<Integer> getLastMonthDates() {
 		
 		int firstDay = getFirstDayInMonth();
-		cal.set(cal.MONTH, -1);
-		List<Integer> lastMonthTemp = new ArrayList<Integer>();
-		lastMonthTemp = getThisMonthDates();		
-		cal.set(cal.MONTH, 1);
-		
 		List<Integer> lastMonth = new ArrayList<Integer>();
-		int firstDayOfCurrentMonth = getFirstDayInMonth();
-		for(int i = firstDayOfCurrentMonth; i>0; i--){
-			lastMonth.add(lastMonthTemp.get(i-1));
+		for(int i = 1; i < firstDay; i++){
+			lastMonth.add((Integer)i);
 		}
-		
 		return lastMonth;
 	}
 	

@@ -39,6 +39,8 @@ public class testCalendarUtil extends UnitTest{
 	@Test
 	public void shouldGiveFirstDayOfMonth(){
 		assertEquals(6, util.getFirstDayInMonth()); //samstag == 6.
+		util.nextMonth();
+		assertEquals(2, util.getFirstDayInMonth()); //dienstag == 2
 	}
 	
 	@Test
@@ -55,7 +57,7 @@ public class testCalendarUtil extends UnitTest{
 		assertEquals(1, (int)util.getThisMonthDates().get(0));
 		
 		assertEquals(6, util.getNextMonthDates().size());
-//		assertEquals(5, util.getLastMonthDates().size());		
+		assertEquals(5, util.getLastMonthDates().size());		
 	}
 	
 	@Test
@@ -66,7 +68,9 @@ public class testCalendarUtil extends UnitTest{
 		assertEquals(1, (int)util.getThisMonthDates().get(0));
 		
 		assertEquals(4, util.getNextMonthDates().size());
-//		assertEquals(5, util.getLastMonthDates().size());		
+		assertEquals(11, util.getMonth());
+		assertEquals(2, util.getFirstDayInMonth());
+		assertEquals(1, util.getLastMonthDates().size());		
 	}	
 
 	@Test
@@ -78,6 +82,6 @@ public class testCalendarUtil extends UnitTest{
 		assertEquals(1, (int)util.getThisMonthDates().get(0));
 		
 		assertEquals(2, util.getNextMonthDates().size());
-//		assertEquals(5, util.getLastMonthDates().size());		
+		assertEquals(3, util.getLastMonthDates().size());		
 	}
 }
