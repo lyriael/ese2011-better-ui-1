@@ -30,7 +30,14 @@ public class CalendarUtil {
 	 * @return month
 	 */
 	public static int getMonth(){
-		return cal.get(cal.MONTH);
+		int month = cal.get(cal.MONTH) + 1;
+		return month;
+	}
+	/**
+	 * Sets month within the same year.<br>
+	 */
+	public static void setMonth(int month){
+		cal.set(cal.MONTH, (month-1));
 	}
 	/**
 	 * Sets the default time stamp one month ahead.
