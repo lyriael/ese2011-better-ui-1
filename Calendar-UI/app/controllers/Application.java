@@ -50,6 +50,8 @@ public	 class Application extends Controller {
     	render(myself, user, calendar, e);
     }
     
+    //TODO: add "Delete" button Lyr
+    
     public static void addEvent(String oldEvent, String userName, String calendarName,
     		String eventName, String eventStart, String eventEnd, boolean isPrivate){
     	User user = db.getUserByName(userName);

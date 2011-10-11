@@ -13,6 +13,7 @@ public class CalendarUtil {
 	
 	/**
 	 * Months are written in <code>int</code>'s from 0 to 11. <br>
+	 *	TODO: form 1 to 12 please!
 	 * Example: June would be <code> 5. </code>
 	 * Wrong input is not handled.
 	 * 
