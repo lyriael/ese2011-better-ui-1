@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -74,16 +75,35 @@ public class CalendarUtil {
 	}
 
 	public List<Integer> getLastMonthDates() {
-		// TODO Auto-generated method stub
-		return null;
+		cal.set(cal.MONTH, -1);
+		List<Integer> lastMonthTemp = new ArrayList<Integer>();
+		lastMonthTemp = getThisMonthDates();		
+		cal.set(cal.MONTH, 1);
+		
+		List<Integer> lastMonth = new ArrayList<Integer>();
+		int firstDayOfCurrentMonth = getFirstDayInMonth();
+		for(int i = firstDayOfCurrentMonth; i>0; i--){
+			lastMonth.add(lastMonthTemp.get(i-1));
+		}
+		
+		return lastMonth;
 	}
 
 	public List<Integer> getThisMonthDates() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Integer> currentMonth = new ArrayList<Integer>();
+		int noOfDays = getNumberOfDaysOfMonth();
+		for(int i = 1; i<= noOfDays; ++i){
+			currentMonth.add(i);
+		}
+		return currentMonth;
 	}
 
 	public List<Integer> getNextMonthDates() {
+		
+		List<Integer> nextMonth = new ArrayList<Integer>();
+		cal.set(cal.MONTH, 1);
+		
+		cal.set(cal.MONTH, -1);
 		// TODO Auto-generated method stub
 		return null;
 	}
