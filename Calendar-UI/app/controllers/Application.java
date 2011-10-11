@@ -43,8 +43,6 @@ public	 class Application extends Controller {
     	List<Integer> lastMonthDates = cu.getLastMonthDates();
     	List<Integer> thisMonthDates = cu.getThisMonthDates();
     	List<Integer> nextMonthDates = cu.getNextMonthDates();
-    	System.out.println(lastMonthDates);
-    	System.out.println();
     	render(myself, user, calendar, events, lastMonthDates, 
     			thisMonthDates, nextMonthDates, msg , cu);
     }
