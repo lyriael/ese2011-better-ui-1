@@ -57,6 +57,7 @@ public class testCalendarUtil extends UnitTest{
 		assertEquals(1, (int)util.getThisMonthDates().get(0));
 		
 		assertEquals(6, util.getNextMonthDates().size());
+		System.out.println(util.getLastMonthDates().toString());
 		assertEquals(5, util.getLastMonthDates().size());		
 	}
 	
