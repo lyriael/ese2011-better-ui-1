@@ -48,9 +48,11 @@ A:HOVER {
 
 #DateBox {
 	margin: auto;
+	margin-bottom : 1em;
 	min-height: 43em;
-	margin-bottom: 1em;
+	padding-bottom: 1em;
 	max-width: 55em;
+	overflow: auto;
 	}
 
 #logoutBox {
