@@ -1,5 +1,7 @@
 package models;
 
+import hirondelle.date4j.DateTime;
+
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -124,6 +126,15 @@ public class Calendar implements Iterable<Event> {
 
 	public boolean removeEvent(Event e) {
 		return eventList.remove(e);
+	}
+	
+	public boolean hasEventOn(int day, int month, int year) {
+		DateTime compareDate = new DateTime(year, month, day, 0, 0, 0, 0);
+		for (Event e: this) {
+			if (e.getStartTime().isSameDayAs(compareDate))
+				return true;
+		}
+		return false;
 	}
 	}
 
