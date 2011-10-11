@@ -30,31 +30,31 @@ public class CalendarUtil {
 	 * 
 	 * @return month
 	 */
-	public static int getMonth(){
+	public int getMonth(){
 		int month = cal.get(cal.MONTH) + 1;
 		return month;
 	}
 	/**
 	 * Sets month within the same year.<br>
 	 */
-	public static void setMonth(int month){
+	public void setMonth(int month){
 		cal.set(cal.MONTH, (month-1));
 	}
 	/**
 	 * Sets the default time stamp one month ahead.
 	 */
-	public static void nextMonth(){
+	public void nextMonth(){
 		cal.add(cal.MONTH, 1);
 	}
 	
 	/**
 	 * Sets the default time stamp one month back.
 	 */
-	public static void previousMonth(){
+	public void previousMonth(){
 		cal.add(cal.MONTH, -1);
 	}
 	
-	public static int getNumberOfDaysOfMonth(){
+	public int getNumberOfDaysOfMonth(){
 		return cal.getActualMaximum(cal.DATE);
 	}
 	
@@ -65,7 +65,7 @@ public class CalendarUtil {
 	 * 
 	 * @return weekday
 	 */
-	public static int getFirstDayInMonth(){
+	public int getFirstDayInMonth(){
 		int temp = cal.get(cal.DAY_OF_WEEK);
 		temp = (temp + 6)%7;
 		return temp;
