@@ -95,7 +95,7 @@ body            {
                         background: url(images/bg.jpg) top center no-repeat #545454;}
 body *          {display:inline;}
 */
-ol.calendar    {width:47em;margin:0 auto;display:block; min-height: 200px;
+ol.calendar    {width:50em;margin:0 auto;display:block; min-height: 200px;
                      padding: 12px 0 0 20px;}
 li              {list-style:none;}
 p.link          {text-align:center;display: block;}
@@ -103,7 +103,7 @@ p.link          {text-align:center;display: block;}
 /*
  * Day styles
  -------------------------*/
-li li           {width:5.5em;height:5.5em;float:left;margin:.2em; padding:.2em;overflow:auto;
+li li           {width:6em;height:6em;float:left;margin:.2em; padding:.2em;overflow:auto;
                         background: #C4E9FE; }
 
 /*
