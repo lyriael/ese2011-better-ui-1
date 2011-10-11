@@ -36,6 +36,10 @@ public class CalendarUtil {
 		int month = cal.get(cal.MONTH) + 1;
 		return month;
 	}
+	
+	public int getYear(){
+		return cal.get(cal.YEAR);
+	}
 	/**
 	 * Sets month within the same year.<br>
 	 */
