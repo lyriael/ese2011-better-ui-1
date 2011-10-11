@@ -9,7 +9,7 @@
 #{/if}
 
 <div id=CalendarBox>
-#{form @Application.editEvent()}
+#{form @Application.addEvent()}
     <p>
         <label for="eventStart">Start date: </label>
         <input type="text" name="eventStart" id="eventStart" value="${e.getStartTime().toString()}" />
@@ -23,6 +23,8 @@
     </p>
     
     <p>
+        <input type="hidden" name="oldEvent" id="oldEvent" value="${e.name}" />
+    
         <label for="eventName">Description of event: </label>
         <input type="text" name="eventName" id="eventName" value="${e.name}"/>
     </p>

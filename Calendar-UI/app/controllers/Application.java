@@ -50,15 +50,17 @@ public	 class Application extends Controller {
     	render(myself, user, calendar, e);
     }
     
-    public static void addEvent(Event oldEvent, String userName, String calendarName,
+    public static void addEvent(String oldEvent, String userName, String calendarName,
     		String eventName, String eventStart, String eventEnd, boolean isPrivate){
     	User user = db.getUserByName(userName);
     	Calendar calendar = user.getCalendarByName(calendarName);
     	String message = null;
     	try {
         	calendar.addEvent(eventName, eventStart, eventEnd, isPrivate);
-        	if (oldEvent!=null)
-        		calendar.removeEvent(oldEvent);
+        	if (oldEvent != null) {
+        		Event e = calendar.getEventByName(oldEvent);
+        		calendar.removeEvent(e);
+        	}
     		System.out.println("removed " + oldEvent);
     	} catch (Exception e){
     		message = e.getMessage();
