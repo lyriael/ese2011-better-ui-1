@@ -73,7 +73,8 @@ public class CalendarUtil {
 	 * @return weekday
 	 */
 	public int getFirstDayInMonth(){
-		int temp = cal.DAY_OF_WEEK;
+		cal.set(cal.DAY_OF_MONTH, 1);
+		int temp = cal.get(cal.DAY_OF_WEEK);
 		temp = (temp + 6)%7;
 		return temp;
 			

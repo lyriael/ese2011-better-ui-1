@@ -38,6 +38,7 @@ public class testCalendarUtil extends UnitTest{
 	
 	@Test
 	public void shouldGiveFirstDayOfMonth(){
+		assertEquals(10, util.getMonth());
 		assertEquals(6, util.getFirstDayInMonth()); //samstag == 6.
 		util.nextMonth();
 		assertEquals(2, util.getFirstDayInMonth()); //dienstag == 2
