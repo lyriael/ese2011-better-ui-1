@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 public class CalendarUtil {
 
@@ -67,5 +68,20 @@ public class CalendarUtil {
 	 */
 	public static int getFirstDayInMonth(){
 		return cal.get(cal.DAY_OF_WEEK);
+	}
+
+	public List<Integer> getLastMonthDates() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Integer> getThisMonthDates() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Integer> getNextMonthDates() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }	
