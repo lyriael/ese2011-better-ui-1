@@ -10,7 +10,7 @@
 
 <div id=DateBox>
 <ol class="calendar" start="6">
-		<H1> ${ cu.getTitle() } </H1>
+		<H1><a href=@{Application.previousMonth()}> &lt;&lt</a>;${cu.getTitle()} <a href=@{Applications.nextMonth()}>&gt;&gt;</a></H1>
         <li id="weekdays">
                 <ol>
                         <li>Monday</li>
@@ -33,7 +33,7 @@
         <li id="thismonth">
                 <ol>
                          #{list items:thisMonthDates, as:'date'}
-								<div #{if calendar.hasEventOn(date, cu.getMonth(), cu.getYear())} id="hasEvent" #{/if}>
+								<div #{if calendar.hasVisibleEventOn(myself, date, cu.getMonth(), cu.getYear())} id="hasEvent" #{/if}>
 								<li> ${date} </li> </div>
 						 #{/list}
                 </ol>

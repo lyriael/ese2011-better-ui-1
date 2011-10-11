@@ -128,10 +128,10 @@ public class Calendar implements Iterable<Event> {
 		return eventList.remove(e);
 	}
 	
-	public boolean hasEventOn(int day, int month, int year) {
+	public boolean hasVisibleEventOn(User user, int day, int month, int year) {
 		DateTime compareDate = new DateTime(year, month, day, 0, 0, 0, 0);
 		for (Event e: this) {
-			if (e.getStartTime().isSameDayAs(compareDate))
+			if (e.getStartTime().isSameDayAs(compareDate) && isEventVisibleFor(e, user))
 				return true;
 		}
 		return false;

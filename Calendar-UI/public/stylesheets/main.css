@@ -50,7 +50,7 @@ A:HOVER {
 	margin: auto;
 	min-height: 43em;
 	margin-bottom: 1em;
-	max-width: 60em;
+	max-width: 55em;
 	}
 
 #logoutBox {
@@ -96,16 +96,14 @@ body            {
 body *          {display:inline;}
 */
 ol.calendar    {width:47em;margin:0 auto;display:block; min-height: 200px;
-                        background: url(images/tl.png) top left no-repeat; padding: 12px 0 0 20px;}
+                     padding: 12px 0 0 20px;}
 li              {list-style:none;}
 p.link          {text-align:center;display: block;}
-/*h1              {display: block; width: 200px;height:76px;
-*                        background:url(images/july.png);text-indent:-9999px; margin: 15px auto; }
-*/
+
 /*
  * Day styles
  -------------------------*/
-li li           {width:5.4em;height:5.4em;float:left;margin:.2em; padding:.2em;overflow:auto;
+li li           {width:5.5em;height:5.5em;float:left;margin:.2em; padding:.2em;overflow:auto;
                         background: #C4E9FE; }
 
 /*
@@ -129,7 +127,7 @@ li#lastmonth li,
 li#nextmonth li    { background: #5E90AE;}
 
 #hasEvent {
-	color: red;
+	font-weight: bold;
 }
 /*
  * Weeekdays */

@@ -57,7 +57,6 @@ public	 class Application extends Controller {
     }
     
     public static void removeEvent(String username, String calendarname, String eventName) {
-    	User myself = db.getUserByName(Security.connected());
     	User user = db.getUserByName(username);
     	Calendar calendar = user.getCalendarByName(calendarname);
     	Event e = calendar.getEventByName(eventName);
@@ -82,6 +81,18 @@ public	 class Application extends Controller {
     		message = e.getMessage();
     	}
     	showEvents(user.getName(), calendar.getName(), message);
+    }
+    
+    public static void nextMonth(String userName, String calendarName) {
+    	CalendarUtil cu = CalendarUtil.getInstanceToday();
+    	cu.nextMonth();
+    	showEvents(userName, calendarName, null);
+    }
+    
+    public static void previousMonth(String userName, String calendarName) {
+    	CalendarUtil cu = CalendarUtil.getInstanceToday();
+    	cu.previousMonth();
+    	showEvents(userName, calendarName, null);
     }
 
 }
