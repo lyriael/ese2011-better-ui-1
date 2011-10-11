@@ -106,7 +106,7 @@ p.link          {text-align:center;display: block;}
  * Day styles
  -------------------------*/
 li li           {width:5.4em;height:5.4em;float:left;margin:.2em; padding:.2em;overflow:auto;
-                        background: url(images/day-bg.png) bottom right no-repeat; }
+                        background: #C4E9FE; }
 
 /*
  * Day content (UL/OL & P)
@@ -126,7 +126,7 @@ li li.holiday    {  }
  * Inactive months
  -------------------------*/
 li#lastmonth li,
-li#nextmonth li    { background: #545454 /*url(images/day-bg-inactive.png)*/;}
+li#nextmonth li    { background: #5E90AE;}
 
 #hasEvent {
 	color: red;
