@@ -33,7 +33,7 @@
         <li id="thismonth">
                 <ol>
                          #{list items:thisMonthDates, as:'date'}
-								<div #{if calendar.hasEventOn(date, ${cu.getMonth()}, ${cu.getYear()}} id="hasEvent" #{/if}>
+								<div #{if calendar.hasEventOn(date, cu.getMonth(), cu.getYear())} id="hasEvent" #{/if}>
 								<li> ${date} </li> </div>
 						 #{/list}
                 </ol>
@@ -54,7 +54,8 @@
 #{list items:events, as:'event'}
 	<p>
 		${event.name} from ${event.startTime.toString()} to ${event.endTime.toString()}
-		<a href=@{Application.showEditEvent(user.name, calendar.name, event.name)}> Edit </a>
+		<a href=@{Application.showEditEvent(user.name, calendar.name, event.name)}>Edit</a> 
+		<a href=@{Application.removeEvent(user.name, calendar.name, event.name)}>Delete</a>
 	</p>
 #{/list}
 </div>
